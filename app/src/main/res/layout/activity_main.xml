@@ -10,8 +10,8 @@
     tools:context="galyanae.monsterlunch.MainActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/imageView"
         android:scaleType="fitXY"
         android:background="@drawable/noun_163217_cc"
