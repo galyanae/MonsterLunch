@@ -25,6 +25,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Random;
 
+import static android.view.View.VISIBLE;
+
 public class MainActivity extends AppCompatActivity {
 
     private GoogleApiClient client;
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else {
             return false;
+
         }
        }
             //return false;
@@ -99,13 +102,18 @@ public class MainActivity extends AppCompatActivity {
                 case DragEvent.ACTION_DROP:
                     Log.i("Drag event","Dropped");
                     randomFood();
-                    food.setVisibility(View.VISIBLE);
+                    food.setVisibility(VISIBLE);
                     break;
 
+                case DragEvent.ACTION_DRAG_ENDED:
+                    food.setVisibility(VISIBLE);
+                default:
+                    break;
             }
 
             return true;
         }
+
     };
 
 
