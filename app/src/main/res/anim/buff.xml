@@ -18,4 +18,12 @@
         android:repeatMode = "reverse"
         android:repeatCount="infinite"
         />
+    
+    <rotate
+    android:fromXDelta="-100"
+    android:toXDelta="100"
+    android:fromYDelta="-200"
+    android:toYDelta="200"
+    android:repeatMode = "reverse"
+    android:repeatCount="infinite"/>
 </set>
