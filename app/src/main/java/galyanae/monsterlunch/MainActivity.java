@@ -23,6 +23,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.sql.SQLOutput;
 import java.util.Random;
 
 import static android.view.View.VISIBLE;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView monster;
     ImageView food;
 
+    int bonus;
 
     AdapterFood adapterFood;
 
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bonus =0;
 
         target = (ImageView) findViewById(R.id.imageView2);
         food = (ImageView) findViewById(R.id.food);
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
                 R.anim.monstermove);
         monster.startAnimation(fallingAnimation);
+        monster.setOnDragListener(monst);
 
         target.setOnDragListener(dropListener);
 
@@ -84,6 +89,41 @@ public class MainActivity extends AppCompatActivity {
             //return false;
        // }
     };
+
+
+
+    View.OnDragListener monst = new View.OnDragListener(){
+        @Override
+        public boolean onDrag(View view, DragEvent event) {
+            int dragEvent = event.getAction();
+            switch (dragEvent){
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag event","Entered");
+                    break;
+
+                case DragEvent.ACTION_DRAG_EXITED:
+                    Log.i("Drag event","Exited");
+                    break;
+
+                case DragEvent.ACTION_DROP:
+                    Log.i("Drag event","Dropped");
+                    bonus = bonus+ randomFood().getBonus();
+                    System.out.println(String.valueOf(bonus));
+                    randomFood();
+                    food.setVisibility(VISIBLE);
+                    break;
+
+                case DragEvent.ACTION_DRAG_ENDED:
+                    food.setVisibility(VISIBLE);
+                default:
+                    break;
+            }
+
+            return true;
+        }
+    };
+
+
 
 
     View.OnDragListener dropListener = new View.OnDragListener() {
