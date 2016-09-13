@@ -23,57 +23,56 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
-        private View selected_item = null;
-    private int offset_x = 0;
-    private int offset_y = 0;
-    Boolean touchFlag = false;
-    boolean dropFlag = false;
-    RelativeLayout.LayoutParams imageParams;
-    ImageView imageDrop, food, imageView;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     private GoogleApiClient client;
-//    int eX, eY;
-//    int topY, leftX, rightX, bottomY;
-//    View.OnDragListener my;
+
+    ImageView target;
+    ImageView monster;
+    ImageView food;
+
+
+    AdapterFood adapterFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageView = (ImageView) findViewById(R.id.imageView);
+
+        target = (ImageView) findViewById(R.id.imageView2);
+        food = (ImageView) findViewById(R.id.food);
+        monster = (ImageView) findViewById(R.id.imageView);
+
+        adapterFood = new AdapterFood(getApplicationContext());
 
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
                 R.anim.monstermove);
-        imageView.startAnimation(fallingAnimation);
+        monster.startAnimation(fallingAnimation);
 
+        target.setOnDragListener(dropListener);
 
-        findViewById(R.id.imageView2).setOnDragListener(dropListener);
+        food.setOnTouchListener(touch);
 
-        findViewById(R.id.food).setOnTouchListener(touvh);
+        randomFood();
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-//
-//    @Override
-//    public boolean onDrag(View view, DragEvent dragEvent) {
-//        return false;
-//    }
 
-    View.OnTouchListener touvh = new View.OnTouchListener() {
+
+
+    View.OnTouchListener touch = new View.OnTouchListener() {
         @Override
-        public boolean onTouch(View v, MotionEvent motionEvent) {
+        public boolean onTouch(View food, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
             ClipData data = ClipData.newPlainText("", "");
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
-                    v);
-            v.startDrag(data, shadowBuilder, v, 0);
-            v.setVisibility(View.INVISIBLE);
+                    food);
+            food.startDrag(data, shadowBuilder, food, 0);
+            food.setVisibility(View.INVISIBLE);
             return true;
         } else {
             return false;
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnDragListener dropListener = new View.OnDragListener() {
         @Override
-        public boolean onDrag(View view, DragEvent event) {
+        public boolean onDrag(View target, DragEvent event) {
             int dragEvent = event.getAction();
             switch (dragEvent){
                 case DragEvent.ACTION_DRAG_ENTERED:
@@ -99,13 +98,13 @@ public class MainActivity extends AppCompatActivity {
 
                 case DragEvent.ACTION_DROP:
                     Log.i("Drag event","Dropped");
-                    ImageView dragged = (ImageView) event.getLocalState();
-                    ImageView target = (ImageView)view;
-                    dragged.setVisibility(View.VISIBLE);
+                    randomFood();
+                    food.setVisibility(View.VISIBLE);
                     break;
+
             }
 
-            return false;
+            return true;
         }
     };
 
@@ -130,186 +129,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        client.connect();
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Main Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://galyanae.gameexample/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.start(client, viewAction);
-//    }
+    public Food randomFood()
+    {
+        Random r = new Random();
+        int index = r.nextInt(adapterFood.foods.size());
+        Food randomFood = adapterFood.foods.get(index);
+        String name = randomFood.getName();
+        System.out.println("Food is "+name);
+        food = (ImageView) findViewById(R.id.food);
+        food.setBackgroundResource(randomFood.getImage());
+        return randomFood;
 
-    //@Override
-//    public void onStop() {
-//        super.onStop();
-//
-//        // ATTENTION: This was auto-generated to implement the App Indexing API.
-//        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Main Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://galyanae.gameexample/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.end(client, viewAction);
-//        client.disconnect();
-//    }
-}
-
-
-
-
-
-
-      //  food.setOnTouchListener((View.OnTouchListener) this);
-
-       // View root = findViewById(android.R.id.content).getRootView();
-       // imageDrop = (ImageView) findViewById(R.id.imageView2);}
-
-
-//        root.setOnTouchListener(new View.OnTouchListener() {
-//            public boolean onTouch(View food, MotionEvent event) {
-//
-//        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-//            ClipData data = ClipData.newPlainText("", "");
-//            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
-//                    food);
-//            food.startDrag(data, shadowBuilder, food, 0);
-//            food.setVisibility(View.INVISIBLE);
-//            return true;
-//        } else {
-//            return false;
-//        }}
-//
-//    @Override
-//    public boolean onDrag(View view, DragEvent event) {
-//        Drawable enterShape = getResources().getDrawable(
-//                R.drawable.noun_101609_cc);
-//        Drawable normalShape = getResources().getDrawable(R.drawable.food);
-//
-//        @Override
-//        public boolean onDrag(View view, DragEvent event) {
-//            int action = event.getAction();
-//            switch (event.getAction()) {
-//                case DragEvent.ACTION_DRAG_STARTED:
-//                    // do nothing
-//                    break;
-//                case DragEvent.ACTION_DRAG_ENTERED:
-//                    v.setBackgroundDrawable(enterShape);
-//                    break;
-//                case DragEvent.ACTION_DRAG_EXITED:
-//                    v.setBackgroundDrawable(normalShape);
-//                    break;
-//                case DragEvent.ACTION_DROP:
-//                    // Dropped, reassign View to ViewGroup
-//                    View view = (View) event.getLocalState();
-//                    ViewGroup owner = (ViewGroup) view.getParent();
-//                    owner.removeView(view);
-//                    LinearLayout container = (LinearLayout) v;
-//                    container.addView(view);
-//                    view.setVisibility(View.VISIBLE);
-//                    break;
-//                case DragEvent.ACTION_DRAG_ENDED:
-//                    v.setBackgroundDrawable(normalShape);
-//                default:
-//                    break;
-//            }
-//            return true;
-//        }
-//    }
-//        return false;
-//    }
-//}
-
-
-
-
-
-
-
-
-
-           // }
-//                if (touchFlag) {
-//                    System.err.println("Display If  Part ::->" + touchFlag);
-//                    switch (event.getActionMasked()) {
-//                        case MotionEvent.ACTION_DOWN:
-//                            topY = imageDrop.getTop();
-//                            leftX = imageDrop.getLeft();
-//                            rightX = imageDrop.getRight();
-//                            bottomY = imageDrop.getBottom();
-//                            break;
-//                        case MotionEvent.ACTION_MOVE:
-//                            eX = (int) event.getX();
-//                            eY = (int) event.getY();
-//                            int x = (int) event.getX() - offset_x;
-//                            int y = (int) event.getY() - offset_y;
-//                            int w = getWindowManager().getDefaultDisplay().getWidth();
-//                            int h = getWindowManager().getDefaultDisplay().getHeight();
-//                            if (x > w) x = w;
-//                            if (y > h) y = h;
-//                            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(new ViewGroup.MarginLayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-//                            lp.setMargins(x, y, 0, 0);
-//
-//                            if (eX > leftX && eX < rightX && eY > topY && eY < bottomY) {
-//                                imageDrop.setBackgroundColor(Color.RED);
-//                                selected_item.bringToFront();
-//                                dropFlag = true;
-//                            } else {
-//                                imageDrop.setBackgroundColor(Color.BLUE);
-//                            }
-//                            selected_item.setLayoutParams(lp);
-//                            break;
-//                        case MotionEvent.ACTION_UP:
-//                            touchFlag = false;
-//                            if (dropFlag) {
-//                                dropFlag = false;
-//                            } else {
-//                                selected_item.setLayoutParams(imageParams);
-//                            }
-//                            break;
-//                        default:
-//                            break;
-//                    }
-//                }
-//                return true;
-//            }
-//        });
-//    }
-//
-//    public boolean onTouch(View v, MotionEvent event) {
-//        switch (event.getActionMasked()) {
-//            case MotionEvent.ACTION_DOWN:
-//                touchFlag = true;
-//                offset_x = (int) event.getX();
-//                offset_y = (int) event.getY();
-//                selected_item = v;
-//                imageParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                selected_item = null;
-//                touchFlag = false;
-//                break;
-//            default:
-//                break;
-//        }
-//        return false;
-                //}
-            //}}
-
+    }}
 
