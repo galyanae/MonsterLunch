@@ -4,7 +4,6 @@
 
 
     android:duration="2000">
-
     <rotate android:fromDegrees="0"
         android:toDegrees="40"
         android:pivotX="50%"
@@ -13,6 +12,13 @@
         android:repeatMode="reverse"
         android:repeatCount="infinite"
         android:interpolator="@android:anim/cycle_interpolator"/>
+
+    <alpha android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:duration="600"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
 
 
 </set>
