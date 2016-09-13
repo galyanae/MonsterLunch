@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     AdapterFood adapterFood;
 
+    TextView score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         target = (ImageView) findViewById(R.id.imageView2);
         food = (ImageView) findViewById(R.id.food);
         monster = (ImageView) findViewById(R.id.imageView);
+
+        score = (TextView) findViewById(R.id.textView);
+        score.setText(String.valueOf(bonus));
 
         adapterFood = new AdapterFood(getApplicationContext());
 
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     bonus = bonus+ randomFood().getBonus();
                     System.out.println(String.valueOf(bonus));
                     randomFood();
+                    updateScore(score);
                     food.setVisibility(VISIBLE);
                     break;
 
@@ -189,5 +196,9 @@ public class MainActivity extends AppCompatActivity {
         food.setBackgroundResource(randomFood.getImage());
         return randomFood;
 
-    }}
+    }
+public void updateScore (TextView score){
+    score.setText(String.valueOf(bonus));
+}
+}
 
