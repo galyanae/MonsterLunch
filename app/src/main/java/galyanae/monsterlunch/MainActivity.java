@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView monster;
     ImageView food;
 
+    Food randomFood;
+
     Boolean result;
 
     int bonus;
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         adapterFood = new AdapterFood(getApplicationContext());
 
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
-                R.anim.buff);
+                R.anim.steps);
         monster.startAnimation(fallingAnimation);
         monster.setOnDragListener(monst);
 
@@ -117,15 +119,16 @@ public class MainActivity extends AppCompatActivity {
 
                 case DragEvent.ACTION_DROP:
                     Log.i("Drag event","Dropped");
-                    bonus = bonus+ randomFood().getBonus();
+                    bonus = bonus+ randomFood.getBonus();
                     System.out.println(String.valueOf(bonus));
-                    randomFood();
                     updateScore(score);
+                    randomFood();
                     food.setVisibility(VISIBLE);
                     break;
 
                 case DragEvent.ACTION_DRAG_ENDED:
                     food.setVisibility(VISIBLE);
+
                 default:
                     break;
 
@@ -153,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case DragEvent.ACTION_DROP:
                     Log.i("Drag event","Dropped");
+                    randomFood.getBonus();
                     randomFood();
                     food.setVisibility(VISIBLE);
                     break;
@@ -161,9 +165,10 @@ public class MainActivity extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_ENDED:
                     break;
 
+
                 default:
                     Log.e("DragDrop Example","Unknown action type received by OnDragListener.");
-                    return false;
+                    break;
 
             }
 
@@ -198,7 +203,8 @@ public class MainActivity extends AppCompatActivity {
     {
         Random r = new Random();
         int index = r.nextInt(adapterFood.foods.size());
-        Food randomFood = adapterFood.foods.get(index);
+        randomFood = adapterFood.foods.get(index);
+        int bonus = randomFood.getBonus();
         String name = randomFood.getName();
         System.out.println("Food is "+name);
         food = (ImageView) findViewById(R.id.food);
