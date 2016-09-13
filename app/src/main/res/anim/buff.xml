@@ -4,17 +4,19 @@
 
     <translate
         android:duration="2000"
-        android:fromXDelta="-200"
-        android:toXDelta="200"
+        android:fromXDelta="-170"
+        android:toXDelta="170"
         android:repeatMode = "reverse"
         android:repeatCount="infinite"
 
         />
 
     <rotate
-        android:duration="200"
-        android:fromDegrees="-5"
-        android:toDegrees="3"
+        android:duration="150"
+        android:fromDegrees="5"
+        android:toDegrees="-5"
+        android:pivotX="50%"
+        android:pivotY="50%"
         android:repeatMode = "reverse"
         android:repeatCount="infinite"
         />

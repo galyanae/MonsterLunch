@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView monster;
     ImageView food;
 
+    Boolean result;
+
     int bonus;
 
     AdapterFood adapterFood;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        result = false;
 
         bonus =0;
 
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         adapterFood = new AdapterFood(getApplicationContext());
 
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
-                R.anim.monstermove);
+                R.anim.buff);
         monster.startAnimation(fallingAnimation);
         monster.setOnDragListener(monst);
 
@@ -124,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     food.setVisibility(VISIBLE);
                 default:
                     break;
+
             }
 
             return true;
@@ -152,10 +157,14 @@ public class MainActivity extends AppCompatActivity {
                     food.setVisibility(VISIBLE);
                     break;
 
+
                 case DragEvent.ACTION_DRAG_ENDED:
-                    food.setVisibility(VISIBLE);
-                default:
                     break;
+
+                default:
+                    Log.e("DragDrop Example","Unknown action type received by OnDragListener.");
+                    return false;
+
             }
 
             return true;
