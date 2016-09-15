@@ -1,7 +1,6 @@
 package galyanae.monsterlunch;
 
 import android.content.ClipData;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -44,15 +43,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        Intent intent = getIntent();
-        String theName= intent.getStringExtra("pName");
-        //String theName="LIA";
-        TextView nametextView = (TextView)findViewById(R.id.name);
-        nametextView.setTextSize(20);
-        nametextView.setText(theName);
-
         result = false;
         bonus =0;
         target = (ImageView) findViewById(R.id.imageView2);

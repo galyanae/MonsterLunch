@@ -22,7 +22,7 @@ public class WelcomeScrn extends AppCompatActivity {
         playerName = String.valueOf((EditText) findViewById(R.id.playerNameText));
 
         if (playerName != null) {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MonsterChoose.class);
             i.putExtra("pName", playerName);
            // i.putExtra("pName", "playerName");
             startActivity(i);
