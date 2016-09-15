@@ -1,3 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.1.0_6e1ef0fb2615ad092cd2856aa60a9ebd66cafcd5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Lia_2\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.1.1_7a08bfffd81dbe32199aae94c24e6fd94bc44d47\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.1.1_1e5e6b980c622b615b9cb007451f5e1049fb009a\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_27cff635b81754abb70f71201c12d6817982da57\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_c31c5d97ed1619e70695b7a84751bd44fd6188fe\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="4a52955a7bab0b22b846015f97ffec201c5e400f">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_4c64076bdf9272353b413174e2cbdd6aa9e86654\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.1.1_cb05b85c567e0be182585b9c334b9c6cbf8d821a\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_040128bac1b933452ff2380ccbea53f6e7d28d07\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.1.0_2755931f8045e85a4f68a6afdb956630b16e54f2\classes.dex" />
+    </item>
+    <item
+        jar="C:\MonsterLunch\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="a888e78de6db6c793201c400aa151c8900a711c3">
+        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5477548ab0b523fc9935ba4da6a76895fb9f05b0\classes.dex" />
+    </item>
+
+</items>

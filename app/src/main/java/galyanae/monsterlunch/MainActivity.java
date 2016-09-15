@@ -314,6 +314,10 @@ public Monster randomMonster(){
         return randomFood;
 
     }
+//public static  void tableScore(Context context){
+//    Intent i = new Intent(context, ScoreTable.class);
+//    context.startActivity(i);
+//}
 
 public void updateScore (){
     score.setText(String.valueOf(bonus));
