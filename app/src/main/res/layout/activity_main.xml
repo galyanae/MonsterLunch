@@ -12,10 +12,10 @@
 
     <ImageView
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:id="@+id/imageView"
         android:scaleType="fitXY"
-        android:background="@drawable/noun_163217_cc"
+        android:background="@drawable/luxorstand"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="66dp" />
@@ -45,7 +45,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:weightSum="5"
-        android:layout_alignTop="@+id/textView">
+        android:layout_alignTop="@+id/textView"
+        android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="0dp"
@@ -104,6 +105,16 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/timeTXT"
+    android:layout_alignTop="@+id/textView"
+    android:layout_alignRight="@+id/linearLayout"
+    android:layout_alignEnd="@+id/linearLayout"
+    android:textSize="20dp"
+    android:layout_toEndOf="@+id/food"
+    android:layout_toRightOf="@+id/food"
+    android:text="Time Left" />
 
 </RelativeLayout>

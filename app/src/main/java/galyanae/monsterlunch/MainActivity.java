@@ -21,12 +21,22 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Handler;
 
 import static android.view.View.VISIBLE;
+import static galyanae.monsterlunch.R.id.timeTXT;
 
 public class MainActivity extends AppCompatActivity {
     private static Context mContext;
     private GoogleApiClient client;
+
+    Timer timer;
+    TimerTask mMyTimerTask;
+    Handler handler;
 
     Monster monsterObj;
 
@@ -40,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     TextView four;
     TextView five;
 
+    TextView hTextView;
+
     TextView[]  scores;
 
     RelativeLayout background;
@@ -48,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     Food randomFood;
 
     Boolean result;
+
+
 
     int bonus;
 
@@ -77,8 +91,11 @@ public class MainActivity extends AppCompatActivity {
         scores[3] = four;
         scores[4] = five;
 
+        winkles(MonsterAction.WINKLES);
 
-
+        hTextView = (TextView) findViewById(timeTXT);
+        GameTimer gameTimer = new GameTimer(90000, 1000,hTextView);
+        gameTimer.start();
 
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
@@ -105,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         monster.setOnDragListener(dropListener);
         target.setOnDragListener(dropListener);
 
-        //food.setOnTouchListener(touch);
+        food.setOnTouchListener(touch);
         food.setOnDragListener(dropListener);
         randomFood();
         updateScore();
@@ -158,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else if (view == monster){
                         bonus = bonus+ monsterObj.eat(randomFood);
+                        winkles(MonsterAction.EATS);
                         System.out.println(String.valueOf(bonus));
                         updateScore();
                         randomFood();
@@ -350,6 +368,72 @@ public void updateScore (){
 
         }
     }
+
+
+
+    private static enum MonsterAction {
+        WINKLES, EATS, HAPPY, DEAD, STAND
+    }
+    public void winkles(MonsterAction monsterAction) {
+        switch (monsterAction) {
+            case STAND:
+                monster.setBackgroundResource(monsterObj.getImageStand());
+                break;
+
+            case WINKLES:
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                monster.setBackgroundResource(monsterObj.getImageWink());
+                            }
+                        });
+                        returnState();
+                    }
+                },0, 4000);
+
+                break;
+
+            case EATS:
+                monster.setBackgroundResource(monsterObj.getImageMounhClose());
+                returnState();
+                break;
+
+            case HAPPY:
+                monster.setBackgroundResource(monsterObj.getImageHappy());
+                returnState();
+                break;
+
+            case DEAD:
+                monster.setBackgroundResource(monsterObj.getDead());
+                returnState();
+                break;
+
+            default:
+                monster.setBackgroundResource(monsterObj.getImageStand());
+                break;
+        }
+    }
+
+    public void returnState (){
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        monster.setBackgroundResource(monsterObj.getImageStand());
+                    }
+                });
+
+            }
+        }, 500);
+
+    }
+
+
 }
 
 
