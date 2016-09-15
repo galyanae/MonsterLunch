@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         monster.setOnDragListener(dropListener);
         target.setOnDragListener(dropListener);
 
-        food.setOnTouchListener(touch);
+        //food.setOnTouchListener(touch);
         food.setOnDragListener(dropListener);
         randomFood();
         updateScore();
