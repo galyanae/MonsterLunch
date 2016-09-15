@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
+
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
         //String theName="LIA";
@@ -53,12 +53,8 @@ public class MainActivity extends AppCompatActivity {
         nametextView.setTextSize(20);
         nametextView.setText(theName);
 
-=======
         result = false;
->>>>>>> 169a05a99d42149c73b05dc66bd9163e61bb05b9
-
         bonus =0;
-
         target = (ImageView) findViewById(R.id.imageView2);
         food = (ImageView) findViewById(R.id.food);
         monster = (ImageView) findViewById(R.id.imageView);

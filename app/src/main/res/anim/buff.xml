@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
 
-<<<<<<< HEAD
 
     <translate
         android:duration="2000"
@@ -20,9 +19,7 @@
         android:repeatCount="infinite"
         />
 
-=======
->>>>>>> 169a05a99d42149c73b05dc66bd9163e61bb05b9
-    <rotate
+ <rotate
     android:fromXDelta="-100"
     android:toXDelta="100"
     android:fromYDelta="-200"
