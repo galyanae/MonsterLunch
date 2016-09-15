@@ -4,3 +4,9 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/galyanae/MonsterLunch.git
 git push -u origin master
+.gradle/2.14.1/taskArtifacts/cache.properties.lock
+*.lock
+.gradle/2.14.1/taskArtifacts/fileHashes.bin
+*.bin
+.idea/libraries/play_services_basement_8_1_0.xml
+*.properties

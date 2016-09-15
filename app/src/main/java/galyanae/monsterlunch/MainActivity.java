@@ -99,10 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
-        //String theName="LIA";
-//        TextView nametextView = (TextView)findViewById(R.id.name);
-//        nametextView.setTextSize(20);
-//        nametextView.setText(theName);
 
         adapterMonster = new AdapterMonster(getApplicationContext());
         randomMonster();
@@ -175,7 +171,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else if (view == monster){
                         bonus = bonus+ monsterObj.eat(randomFood);
-                        winkles(MonsterAction.EATS);
+                        if (monsterObj.getFoodType()==randomFood.getType()){
+                            winkles(MonsterAction.EATS);
+                        }
+                        else {
+                            winkles(MonsterAction.DEAD);
+                        }
                         System.out.println(String.valueOf(bonus));
                         updateScore();
                         randomFood();
@@ -216,83 +217,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-//        // ATTENTION: This was auto-generated to implement the App Indexing API.
-//        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        client.connect();
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Main Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://galyanae.monsterlunch/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.start(client, viewAction);
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Main Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://galyanae.monsterlunch/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.end(client, viewAction);
-//        client.disconnect();
     }
 
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//
-//        // ATTENTION: This was auto-generated to implement the App Indexing API.
-//        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        client.connect();
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Main Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://galyanae.monsterlunch/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.start(client, viewAction);
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//
-//        // ATTENTION: This was auto-generated to implement the App Indexing API.
-//        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Main Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://galyanae.monsterlunch/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.end(client, viewAction);
-//        client.disconnect();
-//    }
 
 
     private class DragShadow extends View.DragShadowBuilder{
@@ -332,10 +259,6 @@ public Monster randomMonster(){
         return randomFood;
 
     }
-//public static  void tableScore(Context context){
-//    Intent i = new Intent(context, ScoreTable.class);
-//    context.startActivity(i);
-//}
 
 public void updateScore (){
     score.setText(String.valueOf(bonus));

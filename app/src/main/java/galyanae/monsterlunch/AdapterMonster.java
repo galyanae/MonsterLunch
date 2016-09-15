@@ -17,11 +17,16 @@ public class AdapterMonster extends BaseAdapter {
     public AdapterMonster(Context context) {
         this.context = context;
         monsters = new ArrayList<>();
-//        monsters.add(new Monster(R.anim.steps, "black", Food.FoodType.Sweet, R.drawable.noun_163217_cc, "Sweety", 0));
-//        monsters.add(new Monster(R.anim.steps, "black", Food.FoodType.Healthy, R.drawable.noun_163217_cc, "Yoggy", 0));
+
         monsters.add(new Monster(R.anim.steps, R.drawable.luxoreyesclose, "black", Food.FoodType.Luxury,
                 R.drawable.luxorhappy,R.drawable.luxormounthclouse,
                 R.drawable.luxorstand,R.drawable.luxoroneeyeclose, "Luxor", 0));
+        monsters.add(new Monster(R.anim.steps, R.drawable.yoggydead, "black", Food.FoodType.Healthy,
+                R.drawable.yoggyhappy,R.drawable.yoggymounthclose,
+                R.drawable.yoggystand,R.drawable.yoggywinkle, "Yoggy",0));
+        monsters.add(new Monster(R.anim.steps, R.drawable.sweetydead, "black", Food.FoodType.Sweet,
+                R.drawable.sweetyhappy,R.drawable.sweetydead,
+                R.drawable.sweetystand,R.drawable.sweetywinkles, "Sweety", 0));
     }
 
     @Override

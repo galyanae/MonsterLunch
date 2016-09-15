@@ -29,8 +29,8 @@ public class GameTimer  extends CountDownTimer {
     public void onFinish() {
         timeLeft.setText("done!");
 //        MainActivity.tableScore(context);
-        Intent i = new Intent(context, ScoreTable.class);
-        context.startActivity(i);
+//        Intent i = new Intent(context, ScoreTable.class);
+//        context.startActivity(i);
        }
 
 
