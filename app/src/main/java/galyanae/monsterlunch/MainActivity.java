@@ -1,6 +1,8 @@
 package galyanae.monsterlunch;
 
 import android.content.ClipData;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -23,7 +25,7 @@ import java.util.Random;
 import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static Context mContext;
     private GoogleApiClient client;
 
     ImageView target;
@@ -51,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         monster = (ImageView) findViewById(R.id.imageView);
         score = (TextView) findViewById(R.id.textView);
         score.setText(String.valueOf(bonus));
-
         adapterFood = new AdapterFood(getApplicationContext());
 
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
@@ -200,8 +201,12 @@ public class MainActivity extends AppCompatActivity {
         return randomFood;
 
     }
-
-public void updateScore (TextView score){
+    
+   public static void tableScore(Context mContext){
+    Intent i = new Intent(mContext, ScoreTable.class);
+    mContext.startActivity(i);
+}
+    public void updateScore (TextView score){
     score.setText(String.valueOf(bonus));
 }
 }
