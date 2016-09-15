@@ -41,7 +41,8 @@
                 android:scaleType="fitXY"
                 android:layout_height="100dp"
                 android:id="@+id/imageView1"
-                android:layout_margin="5dp" />
+                android:layout_margin="5dp"
+                />
 
             <ImageView
                 android:layout_width="0dp"
@@ -58,6 +59,13 @@
                 android:layout_height="100dp"
                 android:id="@+id/imageView3"
                 android:layout_margin="5dp" />
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="trial"
+    android:id="@+id/trialBTN"
+    android:onClick="toMainActivity"
+    />
         </LinearLayout>
 
 </RelativeLayout>

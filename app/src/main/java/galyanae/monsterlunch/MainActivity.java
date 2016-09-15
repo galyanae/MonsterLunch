@@ -19,8 +19,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static android.view.View.VISIBLE;
 
@@ -39,11 +37,9 @@ public class MainActivity extends AppCompatActivity {
     AdapterFood adapterFood;
 
     TextView score;
-    int nCounter =0;
-    TimerTask mTimerTask;
     TextView hTextView;
-    Timer t;
 
+    private Handler handler1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,21 +58,17 @@ public class MainActivity extends AppCompatActivity {
                 R.anim.steps);
         monster.startAnimation(fallingAnimation);
         monster.setOnDragListener(monst);
-
         target.setOnDragListener(dropListener);
-
         food.setOnTouchListener(touch);
         randomFood();
-
-
-        t = new Timer();
         hTextView = (TextView)findViewById(R.id.timerTXT);
-        doTimerTask();
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        GameTimer myTimer = new GameTimer(90000, 1000,hTextView);
+        myTimer.start();
     }
-
 
 
     View.OnTouchListener touch = new View.OnTouchListener() {
@@ -194,26 +186,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void doTimerTask(){
 
-        mTimerTask = new TimerTask() {
-            public void run() {
-                Handler handler = new Handler();
-                handler.post(new Runnable() {
-                    public void run() {
-                        nCounter++;
-                        // update TextView
-                        hTextView.setText("Timer: " + nCounter);
-
-                        Log.d("TIMER", "TimerTask run");
-                    }
-                });
-            }};
-
-        // public void schedule (TimerTask task, long delay, long period)
-        t.schedule(mTimerTask, 500, 3000);  //
-
-    }
     public Food randomFood()
     {
         Random r = new Random();
