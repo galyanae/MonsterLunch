@@ -19,13 +19,13 @@ public class AdapterFood extends BaseAdapter {
     public AdapterFood (Context context) {
         this.context = context;
         foods = new ArrayList<>();
-        foods.add(new Food(200, "black",R.drawable.food,"chickenLeg",200,0,"meat"));
-        foods.add(new Food(300, "black",R.drawable.cactus,"cactus",300,0,"plant"));
-        foods.add(new Food(500, "black",R.drawable.diamound,"diamond",500,0,"object"));
-        foods.add(new Food(100, "black",R.drawable.doughnut,"doughnut",200,0,"sweet"));
-        foods.add(new Food(400, "black",R.drawable.cupcake,"cupcake",200,0,"sweet"));
-        foods.add(new Food(300, "black",R.drawable.chocolate,"chocolate",200,0,"sweet"));
-        foods.add(new Food(500, "black",R.drawable.cake,"cake",500,0,"sweet"));}
+        foods.add(new Food(200, "black",R.drawable.food,"chickenLeg",200,0, Food.FoodType.Healthy));
+        foods.add(new Food(300, "black",R.drawable.cactus,"cactus",300,0, Food.FoodType.Healthy));
+        foods.add(new Food(500, "black",R.drawable.diamound,"diamond",500,0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black",R.drawable.doughnut,"doughnut",200,0, Food.FoodType.Sweet));
+        foods.add(new Food(400, "black",R.drawable.cupcake,"cupcake",200,0, Food.FoodType.Sweet));
+        foods.add(new Food(300, "black",R.drawable.chocolate,"chocolate",200,0, Food.FoodType.Sweet));
+        foods.add(new Food(500, "black",R.drawable.cake,"cake",500,0, Food.FoodType.Sweet));}
 
 
     @Override

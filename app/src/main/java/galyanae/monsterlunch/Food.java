@@ -4,7 +4,9 @@ package galyanae.monsterlunch;
  * Created by Owner on 13/09/2016.
  */
 public class Food {
-    private String type;
+
+    static enum FoodType {Healthy, Sweet, Luxury}
+    private  FoodType type;
     private String name;
     private String color;
 
@@ -13,7 +15,7 @@ public class Food {
     private int negativeBonus;
     private int sound;
 
-    public Food(int bonus, String color, int image, String name, int negativeBonus, int sound, String type) {
+    public Food(int bonus, String color, int image, String name, int negativeBonus, int sound, FoodType type) {
         this.bonus = bonus;
         this.color = color;
         this.image = image;
@@ -71,11 +73,11 @@ public class Food {
         this.sound = sound;
     }
 
-    public String getType() {
+    public FoodType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(FoodType type) {
         this.type = type;
     }
 
