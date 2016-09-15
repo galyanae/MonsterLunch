@@ -13,7 +13,6 @@ public class MonsterChoose extends AppCompatActivity {
         setContentView(R.layout.activity_monster_choose);
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
-        theName="LIA";
         TextView nametextView = (TextView)findViewById(R.id.name);
         nametextView.setTextSize(20);
         nametextView.setText(theName);

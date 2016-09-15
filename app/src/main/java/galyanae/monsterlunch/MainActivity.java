@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.DragEvent;
@@ -18,6 +19,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static android.view.View.VISIBLE;
 
@@ -30,14 +33,16 @@ public class MainActivity extends AppCompatActivity {
     ImageView food;
 
     Food randomFood;
-
     Boolean result;
-
     int bonus;
 
     AdapterFood adapterFood;
 
     TextView score;
+    int nCounter =0;
+    TimerTask mTimerTask;
+    TextView hTextView;
+    Timer t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         target = (ImageView) findViewById(R.id.imageView2);
         food = (ImageView) findViewById(R.id.food);
         monster = (ImageView) findViewById(R.id.imageView);
-
         score = (TextView) findViewById(R.id.textView);
         score.setText(String.valueOf(bonus));
 
@@ -62,9 +66,12 @@ public class MainActivity extends AppCompatActivity {
         target.setOnDragListener(dropListener);
 
         food.setOnTouchListener(touch);
-
         randomFood();
 
+
+        t = new Timer();
+        hTextView = (TextView)findViewById(R.id.timerTXT);
+        doTimerTask();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -187,7 +194,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void doTimerTask(){
 
+        mTimerTask = new TimerTask() {
+            public void run() {
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    public void run() {
+                        nCounter++;
+                        // update TextView
+                        hTextView.setText("Timer: " + nCounter);
+
+                        Log.d("TIMER", "TimerTask run");
+                    }
+                });
+            }};
+
+        // public void schedule (TimerTask task, long delay, long period)
+        t.schedule(mTimerTask, 500, 3000);  //
+
+    }
     public Food randomFood()
     {
         Random r = new Random();
@@ -201,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
         return randomFood;
 
     }
+
 public void updateScore (TextView score){
     score.setText(String.valueOf(bonus));
 }

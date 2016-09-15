@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\MonsterLunch\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="24.0.1"
-        sha1="1640c6838c291d06fd9c9bf6cfd3413fb4262bf3">
-        <dex dex="C:\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5477548ab0b523fc9935ba4da6a76895fb9f05b0\classes.dex" />
-    </item>
-
-</items>

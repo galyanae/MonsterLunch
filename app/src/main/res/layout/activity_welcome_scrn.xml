@@ -16,7 +16,8 @@
         android:id="@+id/playerNameH"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#234bc1" />
 
     <EditText
         android:layout_width="match_parent"

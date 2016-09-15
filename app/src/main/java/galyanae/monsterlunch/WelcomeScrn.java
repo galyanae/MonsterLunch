@@ -8,7 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class WelcomeScrn extends AppCompatActivity {
-    String playerName ;
+    EditText playerName ;
+    String  player;
+
 
 
     @Override
@@ -19,18 +21,20 @@ public class WelcomeScrn extends AppCompatActivity {
     }
 
     public void tOPlayScrn(View view) {
-        playerName = String.valueOf((EditText) findViewById(R.id.playerNameText));
-
+        playerName = (EditText)findViewById(R.id.playerNameText);
+        System.out.println( playerName.getText().toString());
+        player = playerName.getText().toString();
         if (playerName != null) {
+
             Intent i = new Intent(getApplicationContext(), MonsterChoose.class);
-            i.putExtra("pName", playerName);
-           // i.putExtra("pName", "playerName");
+            i.putExtra("pName", player);
             startActivity(i);
         } else {
             TextView MSGtextView = (TextView)findViewById(R.id.MSG);
             MSGtextView.setText("Please Enter Your Name");
+
         }
 
-       // System.out.println(playerName);
+
     }
 }
