@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView monster;
     ImageView food;
 
+    Food randomFood;
+
+    Boolean result;
+
     int bonus;
 
     AdapterFood adapterFood;
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
         //String theName="LIA";
@@ -48,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         nametextView.setTextSize(20);
         nametextView.setText(theName);
 
+=======
+        result = false;
+>>>>>>> 169a05a99d42149c73b05dc66bd9163e61bb05b9
 
         bonus =0;
 
@@ -61,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         adapterFood = new AdapterFood(getApplicationContext());
 
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
-                R.anim.monstermove);
+                R.anim.steps);
         monster.startAnimation(fallingAnimation);
         monster.setOnDragListener(monst);
 
@@ -114,17 +122,19 @@ public class MainActivity extends AppCompatActivity {
 
                 case DragEvent.ACTION_DROP:
                     Log.i("Drag event","Dropped");
-                    bonus = bonus+ randomFood().getBonus();
+                    bonus = bonus+ randomFood.getBonus();
                     System.out.println(String.valueOf(bonus));
-                    randomFood();
                     updateScore(score);
+                    randomFood();
                     food.setVisibility(VISIBLE);
                     break;
 
                 case DragEvent.ACTION_DRAG_ENDED:
                     food.setVisibility(VISIBLE);
+
                 default:
                     break;
+
             }
 
             return true;
@@ -149,14 +159,20 @@ public class MainActivity extends AppCompatActivity {
 
                 case DragEvent.ACTION_DROP:
                     Log.i("Drag event","Dropped");
+                    randomFood.getBonus();
                     randomFood();
                     food.setVisibility(VISIBLE);
                     break;
 
+
                 case DragEvent.ACTION_DRAG_ENDED:
-                    food.setVisibility(VISIBLE);
-                default:
                     break;
+
+
+                default:
+                    Log.e("DragDrop Example","Unknown action type received by OnDragListener.");
+                    break;
+
             }
 
             return true;
@@ -190,7 +206,8 @@ public class MainActivity extends AppCompatActivity {
     {
         Random r = new Random();
         int index = r.nextInt(adapterFood.foods.size());
-        Food randomFood = adapterFood.foods.get(index);
+        randomFood = adapterFood.foods.get(index);
+        int bonus = randomFood.getBonus();
         String name = randomFood.getName();
         System.out.println("Food is "+name);
         food = (ImageView) findViewById(R.id.food);
