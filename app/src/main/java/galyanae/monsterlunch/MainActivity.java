@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView[]  scores;
 
-
+    RelativeLayout background;
 
     String foodType;
     Food randomFood;
@@ -67,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         four = (TextView) findViewById(R.id.imageView7);
         five = (TextView) findViewById(R.id.imageView8);
 
+        background = (RelativeLayout) findViewById(R.id.background);
+        background.setOnDragListener(dropListener);
+
         scores = new TextView[5];
         scores[0] = one;
         scores[1] = two;
@@ -87,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         adapterMonster = new AdapterMonster(getApplicationContext());
         randomMonster();
 
-        result = false;
         bonus =0;
         target = (ImageView) findViewById(R.id.imageView2);
         food = (ImageView) findViewById(R.id.food);
@@ -101,12 +104,11 @@ public class MainActivity extends AppCompatActivity {
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
                 R.anim.steps);
         monster.startAnimation(fallingAnimation);
-        monster.setOnDragListener(monst);
-
+        monster.setOnDragListener(dropListener);
         target.setOnDragListener(dropListener);
 
         food.setOnTouchListener(touch);
-
+        food.setOnDragListener(dropListener);
         randomFood();
         updateScore();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -120,55 +122,18 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onTouch(View food, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-            ClipData data = ClipData.newPlainText("", "");
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
-                    food);
-            food.startDrag(data, shadowBuilder, food, 0);
-            food.setVisibility(View.INVISIBLE);
-            return true;
-        } else {
-            return false;
-
-        }
-       }
-            //return false;
-       // }
-    };
-
-
-
-    View.OnDragListener monst = new View.OnDragListener(){
-        @Override
-        public boolean onDrag(View view, DragEvent event) {
-            int dragEvent = event.getAction();
-            switch (dragEvent){
-                case DragEvent.ACTION_DRAG_ENTERED:
-                    Log.i("Drag event","Entered");
-                    break;
-
-                case DragEvent.ACTION_DRAG_EXITED:
-                    Log.i("Drag event","Exited");
-                    break;
-
-                case DragEvent.ACTION_DROP:
-                    Log.i("Drag event","Dropped");
-                    bonus = bonus+ monsterObj.eat(randomFood);
-                    System.out.println(String.valueOf(bonus));
-                    updateScore();
-                    randomFood();
-                    food.setVisibility(VISIBLE);
-                    break;
-
-                case DragEvent.ACTION_DRAG_ENDED:
-                    food.setVisibility(VISIBLE);
-
-                default:
-                    break;
-
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
+                        food);
+                food.startDrag(data, shadowBuilder, food, 0);
+                food.setVisibility(View.INVISIBLE);
+                return true;
+            } else if (motionEvent.getAction() == MotionEvent.ACTION_UP){
+                        food.setVisibility(View.VISIBLE);
             }
-
             return true;
-        }
+    }
+
     };
 
 
@@ -176,8 +141,9 @@ public class MainActivity extends AppCompatActivity {
 
     View.OnDragListener dropListener = new View.OnDragListener() {
         @Override
-        public boolean onDrag(View target, DragEvent event) {
+        public boolean onDrag(View view, DragEvent event) {
             int dragEvent = event.getAction();
+
             switch (dragEvent){
                 case DragEvent.ACTION_DRAG_ENTERED:
                     Log.i("Drag event","Entered");
@@ -188,26 +154,89 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case DragEvent.ACTION_DROP:
-                    Log.i("Drag event","Dropped");
+                    if (view==target){
                     randomFood();
+                    food.setVisibility(VISIBLE);
+                    }
+                    else if (view == monster){
+                        bonus = bonus+ monsterObj.eat(randomFood);
+                        System.out.println(String.valueOf(bonus));
+                        updateScore();
+                        randomFood();
+                        food.setVisibility(VISIBLE);
+                    }
+                    else if (view == background){
+                        food.setVisibility(VISIBLE);
+                    }
+                    Log.i("Drag event","Dropped");
+                    break;
+
+                case DragEvent.ACTION_DRAG_LOCATION:
+                    Log.i("Drag event","Location");
+                    break;
+
+                case DragEvent.ACTION_DRAG_ENDED:
+                    Log.i("Drag event","Ended");
                     food.setVisibility(VISIBLE);
                     break;
 
-
-                case DragEvent.ACTION_DRAG_ENDED:
+                case DragEvent.ACTION_DRAG_STARTED:
+                    Log.i("Drag event","Started");
+                    food.setVisibility(View.INVISIBLE);
                     break;
-
 
                 default:
                     Log.e("DragDrop Example","Unknown action type received by OnDragListener.");
-                    break;
+                    return true;
+
 
             }
-
             return true;
+
         }
 
     };
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+//        // ATTENTION: This was auto-generated to implement the App Indexing API.
+//        // See https://g.co/AppIndexing/AndroidStudio for more information.
+//        client.connect();
+//        Action viewAction = Action.newAction(
+//                Action.TYPE_VIEW, // TODO: choose an action type.
+//                "Main Page", // TODO: Define a title for the content shown.
+//                // TODO: If you have web page content that matches this app activity's content,
+//                // make sure this auto-generated web page URL is correct.
+//                // Otherwise, set the URL to null.
+//                Uri.parse("http://host/path"),
+//                // TODO: Make sure this auto-generated app URL is correct.
+//                Uri.parse("android-app://galyanae.monsterlunch/http/host/path")
+//        );
+//        AppIndex.AppIndexApi.start(client, viewAction);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+//        Action viewAction = Action.newAction(
+//                Action.TYPE_VIEW, // TODO: choose an action type.
+//                "Main Page", // TODO: Define a title for the content shown.
+//                // TODO: If you have web page content that matches this app activity's content,
+//                // make sure this auto-generated web page URL is correct.
+//                // Otherwise, set the URL to null.
+//                Uri.parse("http://host/path"),
+//                // TODO: Make sure this auto-generated app URL is correct.
+//                Uri.parse("android-app://galyanae.monsterlunch/http/host/path")
+//        );
+//        AppIndex.AppIndexApi.end(client, viewAction);
+//        client.disconnect();
+    }
+
 
 //    @Override
 //    public void onStart() {
@@ -274,8 +303,6 @@ public Monster randomMonster(){
     System.out.println(monsterObj.getName());
     return monsterObj;
 }
-
-
 
     public Food randomFood()
     {
