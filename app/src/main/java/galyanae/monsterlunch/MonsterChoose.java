@@ -30,7 +30,7 @@ public class MonsterChoose extends AppCompatActivity {
 
     public void health(View view) {
         intent = new Intent(this, MainActivity.class);
-        intent.putExtra("name","Yoggy");
+        intent.putExtra("name","Joggy");
         startActivity(intent);
     }
 }

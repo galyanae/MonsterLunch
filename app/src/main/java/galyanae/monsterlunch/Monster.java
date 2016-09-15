@@ -1,20 +1,23 @@
 package galyanae.monsterlunch;
 
 import android.view.animation.Animation;
-
 /**
  * Created by Owner on 13/09/2016.
  */
 public class Monster {
+
+
+
+
     private String name;
-    private String foodType;
+    private Food.FoodType foodType;
     private String foodColor;
 
     private int image;
-    private Animation animation;
+    private int animation;
     private int sound;
 
-    public Monster(Animation animation, String foodColor, String foodType, int image, String name, int sound) {
+    public Monster(int animation, String foodColor, Food.FoodType foodType, int image, String name, int sound) {
         this.animation = animation;
         this.foodColor = foodColor;
         this.foodType = foodType;
@@ -23,11 +26,11 @@ public class Monster {
         this.sound = sound;
     }
 
-    public Animation getAnimation() {
+    public int getAnimation() {
         return animation;
     }
 
-    public void setAnimation(Animation animation) {
+    public void setAnimation(int animation) {
         this.animation = animation;
     }
 
@@ -39,11 +42,11 @@ public class Monster {
         this.foodColor = foodColor;
     }
 
-    public String getFoodType() {
+    public Food.FoodType getFoodType() {
         return foodType;
     }
 
-    public void setFoodType(String foodType) {
+    public void setFoodType(Food.FoodType foodType) {
         this.foodType = foodType;
     }
 
@@ -69,5 +72,18 @@ public class Monster {
 
     public void setSound(int sound) {
         this.sound = sound;
+    }
+
+    public int eat (Food food){
+        int foodBonus=0;
+        if (this.getFoodType()==food.getType()){
+           foodBonus += food.getBonus();
+        }
+        else {
+            foodBonus-=food.getNegativeBonus();
+        }
+        return foodBonus;
+
+
     }
 }
