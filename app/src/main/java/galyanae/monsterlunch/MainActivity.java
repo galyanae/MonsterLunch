@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     android.support.v7.app.AlertDialog show;
 
+    TextView name;
+
     final int DIALOG_EXIT = 1;
 
     MediaPlayer mediaPlayer;
@@ -108,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.setVolume(6,6);
         mediaPlayer.start();
 
+
+
         scores = new TextView[5];
         scores[0] = one;
         scores[1] = two;
@@ -127,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapterMonster = new AdapterMonster(getApplicationContext());
         randomMonster();
+
+        name = (TextView) findViewById(R.id.name);
+        name.setText(monsterObj.getName()+ " - "+monsterObj.getFoodType().toString());
 
         openDialog();
 
