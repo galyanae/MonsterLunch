@@ -15,9 +15,10 @@
         android:text="PLAY"
         android:id="@+id/PLAYbtn"
         android:onClick="tOPlayScrn"
+        android:padding="15dp"
+        android:background="@drawable/round_corners_btn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="#ea8a0a"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="24dp" />

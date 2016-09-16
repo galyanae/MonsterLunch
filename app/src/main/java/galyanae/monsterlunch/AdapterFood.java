@@ -68,6 +68,31 @@ public class AdapterFood extends BaseAdapter {
         foods.add(new Food(130, "black", R.drawable.stretch, "watches", 50, 0, Food.FoodType.Healthy));
         foods.add(new Food(130, "black", R.drawable.tomato, "yahct", 80, 0, Food.FoodType.Healthy));
 
+
+        foods.add(new Food(140, "black", R.drawable.baby, "baby", 180, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.bear, "bear", 90, 0, Food.FoodType.Sweet));
+        foods.add(new Food(90, "black", R.drawable.cake, "cake", 90, 0, Food.FoodType.Sweet));
+        foods.add(new Food(180, "black", R.drawable.cake2, "cake2", 160, 0, Food.FoodType.Sweet));
+        foods.add(new Food(90, "black", R.drawable.candy, "candy", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(80, "black", R.drawable.candy2, "candy2", 70, 0, Food.FoodType.Sweet));
+        foods.add(new Food(80, "black", R.drawable.chocolate, "chocolate", 40, 0, Food.FoodType.Sweet));
+        foods.add(new Food(150, "black", R.drawable.cloud, "cloud", 60, 0, Food.FoodType.Sweet));
+        foods.add(new Food(60, "black", R.drawable.coockie, "coockie", 40, 0, Food.FoodType.Sweet));
+        foods.add(new Food(90, "black", R.drawable.coockie2, "coockie2", 50, 0, Food.FoodType.Sweet));
+        foods.add(new Food(70, "black", R.drawable.croassson, "croassson", 60, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.dog, "dog", 80, 0, Food.FoodType.Sweet));
+        foods.add(new Food(60, "black", R.drawable.doll, "doll", 40, 0, Food.FoodType.Sweet));
+        foods.add(new Food(90, "black", R.drawable.girl, "girl", 60, 0, Food.FoodType.Sweet));
+        foods.add(new Food(80, "black", R.drawable.icecream, "icecream", 70, 0, Food.FoodType.Sweet));
+        foods.add(new Food(90, "black", R.drawable.kartiv, "kartiv", 60, 0, Food.FoodType.Sweet));
+        foods.add(new Food(110, "black", R.drawable.kid, "kid", 90, 0, Food.FoodType.Sweet));
+        foods.add(new Food(80, "black", R.drawable.kitty, "kitty", 70, 0, Food.FoodType.Sweet));
+        foods.add(new Food(90, "black", R.drawable.kitty2, "kitty2", 70, 0, Food.FoodType.Sweet));
+        foods.add(new Food(120, "black", R.drawable.kitty3, "kitty3", 40, 0, Food.FoodType.Sweet));
+        foods.add(new Food(70, "black", R.drawable.pie, "pie", 60, 0, Food.FoodType.Sweet));
+        foods.add(new Food(80, "black", R.drawable.unicorn, "unicorn", 60, 0, Food.FoodType.Sweet));
+
+
     }
 
     @Override

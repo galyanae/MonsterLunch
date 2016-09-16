@@ -24,7 +24,7 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:id="@+id/imageView2"
-        android:background="@drawable/noun_101609_cc"
+        android:background="@drawable/trashbin"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -54,7 +54,7 @@
             android:visibility="invisible"
             android:id="@+id/imageView4"
             android:layout_weight="1"
-            android:background="#00396e" />
+            android:background="#9f5e07" />
 
         <TextView
             android:layout_width="0dp"
@@ -62,17 +62,15 @@
             android:visibility="invisible"
             android:id="@+id/imageView5"
             android:layout_weight="1"
-            android:background="#014788" />
+            android:background="#ca7e16" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:visibility="invisible"
-            android:text="0"
-            android:textColor="#ffffff"
             android:id="@+id/imageView6"
             android:layout_weight="1"
-            android:background="#0141cb"
+            android:background="#e79423"
             android:textAlignment="center" />
 
         <TextView
@@ -81,7 +79,7 @@
             android:visibility="invisible"
             android:id="@+id/imageView7"
             android:layout_weight="1"
-            android:background="#0475de" />
+            android:background="#fab659" />
 
         <TextView
             android:layout_width="0dp"
@@ -89,7 +87,7 @@
             android:visibility="invisible"
             android:id="@+id/imageView8"
             android:layout_weight="1"
-            android:background="#0084ff" />
+            android:background="#fadbb1" />
 
     </LinearLayout>
 

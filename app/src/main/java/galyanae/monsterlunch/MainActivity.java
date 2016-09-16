@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.*;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     MediaPlayer monsterSound;
 
+    GameTimer gameTimer;
+
     Monster monsterObj;
 
     ImageView target;
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     View v;
 
-
+    Intent intent;
     int bonus;
 
     AdapterFood adapterFood;
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         background.setOnDragListener(dropListener);
 
         mediaPlayer = MediaPlayer.create(this,R.raw.flyingmusic);
+        mediaPlayer.setVolume(10,10);
         mediaPlayer.start();
 
         scores = new TextView[5];
@@ -114,8 +118,9 @@ public class MainActivity extends AppCompatActivity {
         winkles(MonsterAction.WINKLES);
 
         hTextView = (TextView) findViewById(timeTXT);
-        GameTimer gameTimer = new GameTimer(90000, 1000,hTextView);
+       gameTimer = new GameTimer(45000, 1000,hTextView);
         gameTimer.start();
+
 
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
@@ -299,15 +304,15 @@ public void updateScore (){
     public void updateBonusScale(){
 
         int cur;
-        if(bonus <= -3000)
+        if(bonus < 0)
             cur = 0;
-        else if(bonus <= -2000)
+        else if(bonus <= 300)
             cur = 1;
-        else if(bonus <= -1000)
+        else if(bonus <= 700)
             cur = 2;
-        else if(bonus <= 0)
-            cur = 3;
         else if(bonus <= 1000)
+            cur = 3;
+        else if(bonus <= 1500)
             cur = 4;
         else
             cur = 5;
@@ -353,6 +358,7 @@ public void updateScore (){
             case EATS:
                 monster.setBackgroundResource(monsterObj.getImageMounhClose());
                 monsterSound = MediaPlayer.create(this,monsterObj.getEatSound());
+                monsterSound.setVolume(18,18);
                 monsterSound.start();
                 returnState();
                 break;
@@ -365,6 +371,7 @@ public void updateScore (){
             case DEAD:
                 monster.setBackgroundResource(monsterObj.getDead());
                 monsterSound = MediaPlayer.create(this,monsterObj.getDislikeSound());
+                monsterSound.setVolume(20,20);
                 monsterSound.start();
                 returnState();
                 break;
@@ -427,14 +434,38 @@ public void updateScore (){
     public void cancel(View v) {
         show.dismiss();
     }
-//        });
-//
-//    }
-//});
-//
-//        }
 
-  }
+
+    public class GameTimer  extends CountDownTimer {
+        private TextView timeLeft;
+
+        public void onTick(long millisUntilFinished) {
+
+            timeLeft.setText("Time left: " + millisUntilFinished / 1000);
+        }
+
+
+        public GameTimer(long millisInFuture, long countDownInterval,TextView timeLeft) {
+            super(millisInFuture, countDownInterval);
+            this.timeLeft = timeLeft;
+
+        }
+
+        public void onFinish() {
+            mediaPlayer.stop();
+            monsterSound.stop();
+            timeLeft.setText("done!");
+            intent = new Intent(MainActivity.this, ScoreTable.class);
+            intent.putExtra("Score",bonus);
+            startActivity(intent);
+
+        }
+
+
+    }
+
+
+}
 
 //    public static  class FireMissilesDialogFragment extends DialogFragment {
 //        @Override

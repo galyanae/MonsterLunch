@@ -9,4 +9,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="galyanae.monsterlunch.ScoreTable">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PLAY AGAIN"
+        android:id="@+id/playAgain"
+        android:onClick="tOPlayScrn"
+        android:padding="15dp"
+        android:background="@drawable/round_corners_btn"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/congrats"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="137dp"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:textAlignment="center" />
 </RelativeLayout>

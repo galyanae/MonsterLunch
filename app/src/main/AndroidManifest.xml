@@ -11,13 +11,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".WelcomeScrn">
+        <activity android:name=".WelcomeScrn"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                     <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!--
@@ -29,8 +32,13 @@
             android:value="@integer/google_play_services_version" />
 
 
-        <activity android:name=".MonsterChoose" />
-        <activity android:name=".ScoreTable"></activity>
+        <activity android:name=".MonsterChoose"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ScoreTable"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
