@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         background.setOnDragListener(dropListener);
 
         mediaPlayer = MediaPlayer.create(this,R.raw.flyingmusic);
-        mediaPlayer.setVolume(10,10);
+        mediaPlayer.setVolume(6,6);
         mediaPlayer.start();
 
         scores = new TextView[5];
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         winkles(MonsterAction.WINKLES);
 
         hTextView = (TextView) findViewById(timeTXT);
-       gameTimer = new GameTimer(45000, 1000,hTextView);
+       gameTimer = new GameTimer(60000, 1000,hTextView);
         gameTimer.start();
 
 
@@ -358,7 +358,7 @@ public void updateScore (){
             case EATS:
                 monster.setBackgroundResource(monsterObj.getImageMounhClose());
                 monsterSound = MediaPlayer.create(this,monsterObj.getEatSound());
-                monsterSound.setVolume(18,18);
+                monsterSound.setVolume(22,22);
                 monsterSound.start();
                 returnState();
                 break;
@@ -465,7 +465,16 @@ public void updateScore (){
     }
 
 
+
+    @Override
+    protected void onStop() {
+        mediaPlayer.stop();
+        monsterSound.stop();
+        super.onStop();
+    }
 }
+
+
 
 //    public static  class FireMissilesDialogFragment extends DialogFragment {
 //        @Override
