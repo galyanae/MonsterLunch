@@ -1,18 +1,28 @@
 package galyanae.monsterlunch;
 
+import android.app.*;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.*;
 import android.util.Log;
 import android.view.DragEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,12 +30,10 @@ import android.widget.TextView;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.Calendar;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
 
 import static android.view.View.VISIBLE;
 import static galyanae.monsterlunch.R.id.timeTXT;
@@ -34,9 +42,12 @@ public class MainActivity extends AppCompatActivity {
     private static Context mContext;
     private GoogleApiClient client;
 
-    Timer timer;
-    TimerTask mMyTimerTask;
-    Handler handler;
+    android.support.v7.app.AlertDialog show;
+
+    final int DIALOG_EXIT = 1;
+
+    MediaPlayer mediaPlayer;
+    MediaPlayer monsterSound;
 
     Monster monsterObj;
 
@@ -50,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
     TextView four;
     TextView five;
 
+    TextView etTitle;
+    TextView etInfo;
+    ImageView imageViewNewImage;
+    ImageView ivCancel;
+
     TextView hTextView;
 
     TextView[]  scores;
@@ -61,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean result;
 
+    View v;
 
 
     int bonus;
@@ -84,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         background = (RelativeLayout) findViewById(R.id.background);
         background.setOnDragListener(dropListener);
 
+        mediaPlayer = MediaPlayer.create(this,R.raw.flyingmusic);
+        mediaPlayer.start();
+
         scores = new TextView[5];
         scores[0] = one;
         scores[1] = two;
@@ -102,6 +122,17 @@ public class MainActivity extends AppCompatActivity {
 
         adapterMonster = new AdapterMonster(getApplicationContext());
         randomMonster();
+
+        openDialog();
+
+
+//        // 1. Instantiate an AlertDialog.Builder with its constructor
+//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//      // 2. Chain together various setter methods to set the dialog characteristics
+//        builder.setMessage("ddsdsdsd")
+//                .setTitle("gadfadg");
+//       // 3. Get the AlertDialog from create()
+//        AlertDialog dialog = builder.create();
 
         bonus =0;
         target = (ImageView) findViewById(R.id.imageView2);
@@ -321,6 +352,8 @@ public void updateScore (){
 
             case EATS:
                 monster.setBackgroundResource(monsterObj.getImageMounhClose());
+                monsterSound = MediaPlayer.create(this,monsterObj.getEatSound());
+                monsterSound.start();
                 returnState();
                 break;
 
@@ -331,6 +364,8 @@ public void updateScore (){
 
             case DEAD:
                 monster.setBackgroundResource(monsterObj.getDead());
+                monsterSound = MediaPlayer.create(this,monsterObj.getDislikeSound());
+                monsterSound.start();
                 returnState();
                 break;
 
@@ -347,6 +382,13 @@ public void updateScore (){
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+//                        if (monsterSound.isPlaying()) {
+//                            monsterSound.release();
+//                            monsterSound=null;
+//                        }
+//                        else{
+//                            System.out.println("Sound is not playing");
+//                        }
                         monster.setBackgroundResource(monsterObj.getImageStand());
                     }
                 });
@@ -356,8 +398,67 @@ public void updateScore (){
 
     }
 
+    public void openDialog (){
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = li.inflate(R.layout.new_news, null, false);
 
-}
+        etTitle = (TextView) view.findViewById(R.id.etTitle);
+        etInfo = (TextView) view.findViewById(R.id.etInfo);
+        imageViewNewImage = (ImageView) view.findViewById(R.id.imageViewNewImage);
+
+        etTitle.setText(monsterObj.getName());
+        etInfo.setText(monsterObj.getStory());
+        imageViewNewImage.setBackgroundResource(monsterObj.getImageStand());
+        ivCancel = (ImageView) view.findViewById(R.id.ivCancel);
+//        ivSave = (ImageView) view.findViewById(R.id.ivSave);
+
+
+
+        builder.setView(view);
+        show = builder.show();
+        show.setView(v);
+        ivCancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                cancel(arg0);
+            }});}
+    public void cancel(View v) {
+        show.dismiss();
+    }
+//        });
+//
+//    }
+//});
+//
+//        }
+
+  }
+
+//    public static  class FireMissilesDialogFragment extends DialogFragment {
+//        @Override
+//        public Dialog onCreateDialog(Bundle savedInstanceState) {
+//            // Use the Builder class for convenient dialog construction
+//            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//            builder.setMessage("aaaa")
+//                    .setPositiveButton(";;;;;;", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            // FIRE ZE MISSILES!
+//                        }
+//                    })
+//                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            // User cancelled the dialog
+//                        }
+//                    });
+//            // Create the AlertDialog object and return it
+//            return builder.create();
+//        }
+//    }
+
+
+
 
 
 

@@ -18,15 +18,15 @@ public class AdapterMonster extends BaseAdapter {
         this.context = context;
         monsters = new ArrayList<>();
 
-        monsters.add(new Monster(R.anim.steps, R.drawable.luxoreyesclose, "black", Food.FoodType.Luxury,
+        monsters.add(new Monster(R.anim.steps, R.drawable.luxoreyesclose, R.raw.dontlikeit, R.raw.luxornom, "black", Food.FoodType.Luxury,
                 R.drawable.luxorhappy,R.drawable.luxormounthclouse,
-                R.drawable.luxorstand,R.drawable.luxoroneeyeclose, "Luxor", 0));
-        monsters.add(new Monster(R.anim.steps, R.drawable.yoggydead, "black", Food.FoodType.Healthy,
+                R.drawable.luxorstand,R.drawable.luxoroneeyeclose, "Luxor",context.getString(R.string.LuxorStorie)));
+        monsters.add(new Monster(R.anim.steps, R.drawable.yoggydead,R.raw.dontlikeit, R.raw.yoggynom, "black", Food.FoodType.Healthy,
                 R.drawable.yoggyhappy,R.drawable.yoggymounthclose,
-                R.drawable.yoggystand,R.drawable.yoggywinkle, "Yoggy",0));
-        monsters.add(new Monster(R.anim.steps, R.drawable.sweetydead, "black", Food.FoodType.Sweet,
+                R.drawable.yoggystand,R.drawable.yoggywinkle, "Yoggy", context.getString(R.string.YoggyStory)));
+        monsters.add(new Monster(R.anim.steps, R.drawable.sweetydead, R.raw.dontlikeit, R.raw.sweetynom, "black", Food.FoodType.Sweet,
                 R.drawable.sweetyhappy,R.drawable.sweetydead,
-                R.drawable.sweetystand,R.drawable.sweetywinkles, "Sweety", 0));
+                R.drawable.sweetystand,R.drawable.sweetywinkles, "Sweety",context.getString(R.string.SweetyStorie)));
     }
 
     @Override
@@ -41,7 +41,7 @@ public class AdapterMonster extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override

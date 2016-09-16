@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class Monster {
 
 
-
+    private String story;
 
     private String name;
     private Food.FoodType foodType;
@@ -25,13 +25,17 @@ public class Monster {
     private int imageHappy;
 
     private int animation;
-    private int sound;
+    private int eatSound;
+    private int dislikeSound;
 
-    public Monster(int animation, int dead, String foodColor,
-                   Food.FoodType foodType, int imageHappy, int imageMounhClose,
-                   int imageStand, int imageWink, String name, int sound) {
+    public Monster(int animation, int dead, int dislikeSound,
+                   int eatSound, String foodColor, Food.FoodType foodType,
+                   int imageHappy, int imageMounhClose, int imageStand,
+                   int imageWink, String name, String story) {
         this.animation = animation;
         this.dead = dead;
+        this.dislikeSound = dislikeSound;
+        this.eatSound = eatSound;
         this.foodColor = foodColor;
         this.foodType = foodType;
         this.imageHappy = imageHappy;
@@ -39,7 +43,7 @@ public class Monster {
         this.imageStand = imageStand;
         this.imageWink = imageWink;
         this.name = name;
-        this.sound = sound;
+        this.story = story;
     }
 
     public int getAnimation() {
@@ -56,6 +60,22 @@ public class Monster {
 
     public void setDead(int dead) {
         this.dead = dead;
+    }
+
+    public int getDislikeSound() {
+        return dislikeSound;
+    }
+
+    public void setDislikeSound(int dislikeSound) {
+        this.dislikeSound = dislikeSound;
+    }
+
+    public int getEatSound() {
+        return eatSound;
+    }
+
+    public void setEatSound(int eatSound) {
+        this.eatSound = eatSound;
     }
 
     public String getFoodColor() {
@@ -114,12 +134,12 @@ public class Monster {
         this.name = name;
     }
 
-    public int getSound() {
-        return sound;
+    public String getStory() {
+        return story;
     }
 
-    public void setSound(int sound) {
-        this.sound = sound;
+    public void setStory(String story) {
+        this.story = story;
     }
 
     public int eat (Food food){

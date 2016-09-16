@@ -10,3 +10,4 @@ git push -u origin master
 *.bin
 .idea/libraries/play_services_basement_8_1_0.xml
 *.properties
+.idea/misc.xml

@@ -9,39 +9,63 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="galyanae.monsterlunch.WelcomeScrn">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="What's your Name?"
-        android:id="@+id/playerNameH"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#234bc1" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/playerNameText"
-        android:layout_below="@+id/playerNameH"
-        android:layout_alignRight="@+id/playerNameH"
-        android:layout_alignEnd="@+id/playerNameH" />
-
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="PLAY"
         android:id="@+id/PLAYbtn"
         android:onClick="tOPlayScrn"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#ea8a0a"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/MSG"
-        android:layout_below="@+id/playerNameText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignBaseline="@+id/PLAYbtn" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView9"
+        android:src="@drawable/monsterlunch"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_below="@+id/imageView9"
+        android:weightSum="3"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/yoggy"
+            android:background="@drawable/yoggystand"
+            android:layout_marginRight="10dp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/luxor"
+            android:background="@drawable/luxorstand" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/sweety"
+            android:background="@drawable/sweetystand"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
 </RelativeLayout>
