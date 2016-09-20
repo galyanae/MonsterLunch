@@ -421,7 +421,7 @@ public void updateScore (){
     public void openDialog (){
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
         LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = li.inflate(R.layout.new_news, null, false);
+        View view = li.inflate(R.layout.instructions, null, false);
 
         etTitle = (TextView) view.findViewById(R.id.etTitle);
         etInfo = (TextView) view.findViewById(R.id.etInfo);
