@@ -26,24 +26,22 @@
         android:visibility="invisible" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_below="@+id/imageView9"
         android:weightSum="3"
         android:layout_centerHorizontal="true">
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/yoggy"
-            android:background="@drawable/yoggystand"
-            android:layout_margin="10dp"
-            />
+            android:background="@drawable/yoggystand" />
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/luxor"
             android:background="@drawable/luxorstand"
@@ -51,8 +49,8 @@
             />
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/sweety"
             android:background="@drawable/sweetystand"

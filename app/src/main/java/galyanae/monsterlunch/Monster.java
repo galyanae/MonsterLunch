@@ -28,11 +28,14 @@ public class Monster {
     private int eatSound;
     private int dislikeSound;
 
-    public Monster(int animation, int dead, int dislikeSound,
-                   int eatSound, String foodColor, Food.FoodType foodType,
-                   int imageHappy, int imageMounhClose, int imageStand,
-                   int imageWink, String name, String story) {
+    private int backGroundMusic;
+
+    public Monster(int animation, int backGroundMusic, int dead,
+                   int dislikeSound, int eatSound, String foodColor,
+                   Food.FoodType foodType, int imageHappy, int imageMounhClose,
+                   int imageStand, int imageWink, String name, String story) {
         this.animation = animation;
+        this.backGroundMusic = backGroundMusic;
         this.dead = dead;
         this.dislikeSound = dislikeSound;
         this.eatSound = eatSound;
@@ -52,6 +55,14 @@ public class Monster {
 
     public void setAnimation(int animation) {
         this.animation = animation;
+    }
+
+    public int getBackGroundMusic() {
+        return backGroundMusic;
+    }
+
+    public void setBackGroundMusic(int backGroundMusic) {
+        this.backGroundMusic = backGroundMusic;
     }
 
     public int getDead() {
@@ -141,6 +152,7 @@ public class Monster {
     public void setStory(String story) {
         this.story = story;
     }
+
 
     public int eat (Food food){
         int foodBonus=0;

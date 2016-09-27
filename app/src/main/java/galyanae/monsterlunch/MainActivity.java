@@ -1,19 +1,13 @@
 package galyanae.monsterlunch;
 
-import android.app.*;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.*;
 import android.util.Log;
 import android.view.DragEvent;
@@ -22,8 +16,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,7 +23,6 @@ import android.widget.TextView;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.Calendar;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -49,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     final int DIALOG_EXIT = 1;
 
-    MediaPlayer mediaPlayer;
+    MediaPlayer backGroundMusic;
     MediaPlayer monsterSound;
 
     GameTimer gameTimer;
@@ -106,9 +97,13 @@ public class MainActivity extends AppCompatActivity {
         background = (RelativeLayout) findViewById(R.id.background);
         background.setOnDragListener(dropListener);
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.flyingmusic);
-        mediaPlayer.setVolume(6,6);
-        mediaPlayer.start();
+        adapterMonster = new AdapterMonster(getApplicationContext());
+        randomMonster();
+        
+        backGroundMusic = MediaPlayer.create(this,monsterObj.getBackGroundMusic());
+        backGroundMusic.setVolume(3,3);
+        backGroundMusic.setLooping(true);
+        backGroundMusic.start();
 
 
 
@@ -119,18 +114,19 @@ public class MainActivity extends AppCompatActivity {
         scores[3] = four;
         scores[4] = five;
 
+
+
         winkles(MonsterAction.WINKLES);
 
         hTextView = (TextView) findViewById(timeTXT);
-       gameTimer = new GameTimer(60000, 1000,hTextView);
-        gameTimer.start();
+        gameTimer = new GameTimer(60000, 1000,hTextView);
+
 
 
         Intent intent = getIntent();
         String theName= intent.getStringExtra("pName");
 
-        adapterMonster = new AdapterMonster(getApplicationContext());
-        randomMonster();
+
 
         name = (TextView) findViewById(R.id.name);
         name.setText(monsterObj.getName()+ " - "+monsterObj.getFoodType().toString());
@@ -138,13 +134,7 @@ public class MainActivity extends AppCompatActivity {
         openDialog();
 
 
-//        // 1. Instantiate an AlertDialog.Builder with its constructor
-//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//      // 2. Chain together various setter methods to set the dialog characteristics
-//        builder.setMessage("ddsdsdsd")
-//                .setTitle("gadfadg");
-//       // 3. Get the AlertDialog from create()
-//        AlertDialog dialog = builder.create();
+
 
         bonus =0;
         target = (ImageView) findViewById(R.id.imageView2);
@@ -158,8 +148,17 @@ public class MainActivity extends AppCompatActivity {
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
                 R.anim.steps);
         monster.startAnimation(fallingAnimation);
+
         monster.setOnDragListener(dropListener);
         target.setOnDragListener(dropListener);
+        name.setOnDragListener(dropListener);
+        score.setOnDragListener(dropListener);
+        hTextView.setOnDragListener(dropListener);
+        one.setOnDragListener(dropListener);
+        two.setOnDragListener(dropListener);
+        three.setOnDragListener(dropListener);
+        four.setOnDragListener(dropListener);
+        five.setOnDragListener(dropListener);
 
         food.setOnTouchListener(touch);
         food.setOnDragListener(dropListener);
@@ -225,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                         randomFood();
                         food.setVisibility(VISIBLE);
                     }
-                    else if (view == background){
+                    else {
                         food.setVisibility(VISIBLE);
                     }
                     Log.i("Drag event","Dropped");
@@ -439,6 +438,7 @@ public void updateScore (){
                 cancel(arg0);
             }});}
     public void cancel(View v) {
+        gameTimer.start();
         show.dismiss();
     }
 
@@ -459,12 +459,18 @@ public void updateScore (){
         }
 
         public void onFinish() {
-            mediaPlayer.stop();
-            monsterSound.stop();
+            if (backGroundMusic != null | monsterSound!= null) {
+                try {
+                    backGroundMusic.stop();
+                    monsterSound.stop();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }}
             timeLeft.setText("done!");
             intent = new Intent(MainActivity.this, ScoreTable.class);
             intent.putExtra("Score",bonus);
             startActivity(intent);
+
 
         }
 
@@ -475,34 +481,21 @@ public void updateScore (){
 
     @Override
     protected void onStop() {
-        mediaPlayer.stop();
-        monsterSound.stop();
+        if (backGroundMusic != null | monsterSound!= null) {
+            try {
+                backGroundMusic.stop();
+                monsterSound.stop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }}
+        gameTimer.cancel();
+        finish();
         super.onStop();
     }
 }
 
 
 
-//    public static  class FireMissilesDialogFragment extends DialogFragment {
-//        @Override
-//        public Dialog onCreateDialog(Bundle savedInstanceState) {
-//            // Use the Builder class for convenient dialog construction
-//            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//            builder.setMessage("aaaa")
-//                    .setPositiveButton(";;;;;;", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            // FIRE ZE MISSILES!
-//                        }
-//                    })
-//                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            // User cancelled the dialog
-//                        }
-//                    });
-//            // Create the AlertDialog object and return it
-//            return builder.create();
-//        }
-//    }
 
 
 

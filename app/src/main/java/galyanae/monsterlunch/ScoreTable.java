@@ -25,5 +25,12 @@ public class ScoreTable extends AppCompatActivity {
     public void tOPlayScrn(View view) {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
+        finish();
+    }
+
+    protected void onStop() {
+        finish();
+        super.onStop();
     }
 }
+
