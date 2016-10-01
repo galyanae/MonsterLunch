@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
     String foodType;
     Food randomFood;
 
+    int position;
+
     Boolean result;
 
     View v;
@@ -98,7 +100,12 @@ public class MainActivity extends AppCompatActivity {
         background.setOnDragListener(dropListener);
 
         adapterMonster = new AdapterMonster(getApplicationContext());
-        randomMonster();
+
+        position = getIntent().getIntExtra("Position",0);
+        monsterObj = adapterMonster.monsters.get(position);
+        System.out.println("Monster is "+adapterMonster.monsters.get(position).getName());
+
+
         
         backGroundMusic = MediaPlayer.create(this,monsterObj.getBackGroundMusic());
         backGroundMusic.setVolume(3,3);

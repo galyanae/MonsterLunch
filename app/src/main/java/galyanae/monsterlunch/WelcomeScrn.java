@@ -37,7 +37,7 @@ public class WelcomeScrn extends AppCompatActivity {
     }
 
     public void tOPlayScrn(View view) {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MonsterChoose.class);
             startActivity(i);
 
     }

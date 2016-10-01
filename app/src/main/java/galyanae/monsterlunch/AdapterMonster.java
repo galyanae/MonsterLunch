@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -12,7 +15,14 @@ import java.util.ArrayList;
  */
 public class AdapterMonster extends BaseAdapter {
     ArrayList<Monster> monsters;
+    public ArrayList<Monster> getMonsters() {
+        return monsters;
+    }
     private Context context;
+
+    TextView monsterName;
+    TextView monsterStory;
+    ImageView monsterImage;
 
     public AdapterMonster(Context context) {
         this.context = context;
@@ -35,17 +45,28 @@ public class AdapterMonster extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public Object getItem(int position) {
         return null;
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return 0;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+    public View getView(int position, View view, ViewGroup viewGroup) {
+        LinearLayout linearLayout = (LinearLayout) View.inflate(context,R.layout.adapter_monster_choise,null);
+            monsterName = (TextView) linearLayout.findViewById(R.id.monsterName);
+            monsterStory = (TextView) linearLayout.findViewById(R.id.monsterStory);
+            monsterImage = (ImageView) linearLayout.findViewById(R.id.monsterImage);
+
+        monsterImage.setBackgroundResource(monsters.get(position).getImageStand());
+        monsterStory.setText(monsters.get(position).getStory());
+        monsterName.setText(monsters.get(position).getName());
+
+        return linearLayout;
     }
+
+
 }
