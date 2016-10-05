@@ -215,10 +215,12 @@ public class MainActivity extends AppCompatActivity {
 
                 case DragEvent.ACTION_DROP:
                     if (view==target){
+                        //OPEN GARBAGE CAN IMAGE
                     randomFood();
                     food.setVisibility(VISIBLE);
                     }
                     else if (view == monster){
+                        //CLOSED GARBAGE CAN IMAGE
                         bonus = bonus+ monsterObj.eat(randomFood);
                         if (monsterObj.getFoodType()==randomFood.getType()){
                             winkles(MonsterAction.EATS);
