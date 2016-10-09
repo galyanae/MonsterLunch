@@ -8,7 +8,7 @@ import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.*;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -19,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView target;
     ImageView monster;
     ImageView food;
+    ImageView soundImg;
 
     TextView one;
     TextView two;
@@ -270,7 +272,28 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
     }
 
+    boolean mute = false;
+    public void playOrMute(View view) {
+        soundImg = (ImageView) findViewById(R.id.sound);
+       mute =! mute;
+       //soundImg.setImageResource(R.drawable.mute);
 
+        if (mute) {
+
+                backGroundMusic.start();
+                //soundImg.setImageResource(R.drawable.mute);
+
+                Toast.makeText(MainActivity.this, "is playing", Toast.LENGTH_SHORT).show();
+
+
+        }else {
+            backGroundMusic.pause();
+           // soundImg.setImageResource(R.drawable.play);
+
+            Toast.makeText(MainActivity.this, "is mute", Toast.LENGTH_SHORT).show();
+
+        }
+    }
 
 
     private class DragShadow extends View.DragShadowBuilder{
@@ -345,7 +368,7 @@ public void updateScore (){
 
 
 
-    private static enum MonsterAction {
+    private enum MonsterAction {
         WINKLES, EATS, HAPPY, DEAD, STAND
     }
     public void winkles(MonsterAction monsterAction) {

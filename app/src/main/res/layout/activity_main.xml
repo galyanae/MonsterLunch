@@ -125,4 +125,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/sound"
+        android:onClick="playOrMute"
+        android:background="@drawable/play"
+        android:layout_above="@+id/imageView"
+        android:layout_alignRight="@+id/food"
+        android:layout_alignEnd="@+id/food" />
+
 </RelativeLayout>
