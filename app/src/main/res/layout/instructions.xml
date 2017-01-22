@@ -114,7 +114,6 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:background="@drawable/trash"
             android:id="@+id/imageView7"
             android:layout_below="@+id/ivCancel"
             android:layout_alignParentLeft="true"

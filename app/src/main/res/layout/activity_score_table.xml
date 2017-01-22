@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="PLAY AGAIN"
         android:id="@+id/playAgain"
-        android:onClick="tOPlayScrn"
+        android:onClick="playAgain"
         android:padding="15dp"
         android:background="@drawable/round_corners_btn"
         android:textColor="#ffffff"

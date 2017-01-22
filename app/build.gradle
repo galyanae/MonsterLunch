@@ -1,26 +1,37 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        MonsterLunch {
+            keyAlias 'galyanae'
+            keyPassword 'dfvgbh72027'
+            storePassword 'kolobok72027'
+            storeFile file('C:/Users/Owner/AndroidAppsKeyStore.jks')
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
-
     defaultConfig {
         applicationId "galyanae.gameexample"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.MonsterLunch
+        }
+        debug {
+            versionNameSuffix '1.1'
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'

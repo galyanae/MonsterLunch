@@ -22,8 +22,8 @@ public class ScoreTable extends AppCompatActivity {
         congrats.setText("Your score is "+score+ ". Monsters think that you can do better! Do you want to try right now?" );
     }
 
-    public void tOPlayScrn(View view) {
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+    public void playAgain(View view) {
+        Intent i = new Intent(getApplicationContext(), MonsterChoose.class);
         startActivity(i);
         finish();
     }

@@ -13,25 +13,11 @@ import java.util.TimerTask;
 
 public class WelcomeScrn extends AppCompatActivity {
 
-    Monster yoggy;
-    Monster luxor;
-    Monster sweety;
-
-    ImageView monster;
-    ImageView monsterOne;
-    ImageView monsterThree;
-
-    AdapterMonster adapterMonster;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_scrn);
-
-        monster = (ImageView) findViewById(R.id.yoggy);
-        monsterOne = (ImageView) findViewById(R.id.luxor);
-        monsterThree = (ImageView) findViewById(R.id.sweety);
 
 
     }

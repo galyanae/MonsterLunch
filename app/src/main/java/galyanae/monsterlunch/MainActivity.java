@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,53 +30,44 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.view.View.VISIBLE;
-import static galyanae.monsterlunch.R.id.timeTXT;
 
 public class MainActivity extends AppCompatActivity {
-    private static Context mContext;
     private GoogleApiClient client;
 
     android.support.v7.app.AlertDialog show;
 
-    TextView name;
+    ProgressBar progressBar;
+    TextView timeLeft;
+    long remainingTime;
 
-    final int DIALOG_EXIT = 1;
+    TextView name;
 
     MediaPlayer backGroundMusic;
     MediaPlayer monsterSound;
+    MediaPlayer addingTime;
 
     GameTimer gameTimer;
 
     Monster monsterObj;
 
     ImageView target;
+    ImageView secondTrash;
     ImageView monster;
     ImageView food;
     ImageView soundImg;
-
-    TextView one;
-    TextView two;
-    TextView three;
-    TextView four;
-    TextView five;
 
     TextView etTitle;
     TextView etInfo;
     ImageView imageViewNewImage;
     ImageView ivCancel;
 
-    TextView hTextView;
-
-    TextView[]  scores;
+    TextView timeTXT;
 
     RelativeLayout background;
 
-    String foodType;
     Food randomFood;
 
     int position;
-
-    Boolean result;
 
     View v;
 
@@ -92,12 +84,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        one = (TextView) findViewById(R.id.imageView4);
-        two = (TextView) findViewById(R.id.imageView5);
-        three =(TextView) findViewById(R.id.imageView6);
-        four = (TextView) findViewById(R.id.imageView7);
-        five = (TextView) findViewById(R.id.imageView8);
-
         background = (RelativeLayout) findViewById(R.id.background);
         background.setOnDragListener(dropListener);
 
@@ -107,48 +93,20 @@ public class MainActivity extends AppCompatActivity {
         monsterObj = adapterMonster.monsters.get(position);
         System.out.println("Monster is "+adapterMonster.monsters.get(position).getName());
 
+        bonus =0;
+        target = (ImageView) findViewById(R.id.imageView2);
+        secondTrash= (ImageView) findViewById(R.id.secondTrach);
+        food = (ImageView) findViewById(R.id.food);
+        monster = (ImageView) findViewById(R.id.imageView);
+        monster.setBackgroundResource(monsterObj.getImageStand());
 
-        
         backGroundMusic = MediaPlayer.create(this,monsterObj.getBackGroundMusic());
         backGroundMusic.setVolume(3,3);
         backGroundMusic.setLooping(true);
-        backGroundMusic.start();
 
+        addingTime = MediaPlayer.create(this,R.raw.addingtime);
+        addingTime.setVolume(20,20);
 
-
-        scores = new TextView[5];
-        scores[0] = one;
-        scores[1] = two;
-        scores[2] = three;
-        scores[3] = four;
-        scores[4] = five;
-
-
-
-        winkles(MonsterAction.WINKLES);
-
-        hTextView = (TextView) findViewById(timeTXT);
-        gameTimer = new GameTimer(60000, 1000,hTextView);
-
-
-
-        Intent intent = getIntent();
-        String theName= intent.getStringExtra("pName");
-
-
-
-        name = (TextView) findViewById(R.id.name);
-        name.setText(monsterObj.getName()+ " - "+monsterObj.getFoodType().toString());
-
-        openDialog();
-
-
-
-
-        bonus =0;
-        target = (ImageView) findViewById(R.id.imageView2);
-        food = (ImageView) findViewById(R.id.food);
-        monster = (ImageView) findViewById(R.id.imageView);
 
         score = (TextView) findViewById(R.id.textView);
         score.setText(String.valueOf(bonus));
@@ -156,26 +114,34 @@ public class MainActivity extends AppCompatActivity {
 
         final Animation fallingAnimation = AnimationUtils.loadAnimation(this,
                 R.anim.steps);
-        monster.startAnimation(fallingAnimation);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(1000);
+
+        timeTXT = (TextView) findViewById(R.id.timeTXT);
+        gameTimer = new GameTimer(60000, 1000, timeTXT);
+
+        name = (TextView) findViewById(R.id.name);
+        name.setText(monsterObj.getName()+ " - "+monsterObj.getFoodType().toString());
 
         monster.setOnDragListener(dropListener);
         target.setOnDragListener(dropListener);
+        secondTrash.setOnDragListener(dropListener);
         name.setOnDragListener(dropListener);
         score.setOnDragListener(dropListener);
-        hTextView.setOnDragListener(dropListener);
-        one.setOnDragListener(dropListener);
-        two.setOnDragListener(dropListener);
-        three.setOnDragListener(dropListener);
-        four.setOnDragListener(dropListener);
-        five.setOnDragListener(dropListener);
+        timeTXT.setOnDragListener(dropListener);
+        progressBar.setOnDragListener(dropListener);
 
         food.setOnTouchListener(touch);
         food.setOnDragListener(dropListener);
-        randomFood();
-        updateScore();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        backGroundMusic.start();
+        monster.startAnimation(fallingAnimation);
+        randomFood();
+
+        openDialog();
     }
 
 
@@ -216,22 +182,39 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case DragEvent.ACTION_DROP:
-                    if (view==target){
+                    if (view==target||view==secondTrash){
                         //OPEN GARBAGE CAN IMAGE
                     randomFood();
                     food.setVisibility(VISIBLE);
                     }
-                    else if (view == monster){
+                    else if (view == monster) {
                         //CLOSED GARBAGE CAN IMAGE
-                        bonus = bonus+ monsterObj.eat(randomFood);
-                        if (monsterObj.getFoodType()==randomFood.getType()){
+                        if (monsterObj.getFoodType() == randomFood.getType()) {
                             winkles(MonsterAction.EATS);
-                        }
-                        else {
+
+                        } else {
                             winkles(MonsterAction.DEAD);
+
                         }
+                        bonus = bonus+ monsterObj.eat(randomFood);
+                        score.setText(String.valueOf(bonus));
                         System.out.println(String.valueOf(bonus));
-                        updateScore();
+
+                        if (bonus < 1000) {
+                            progressBar.setProgress(bonus);
+                        } else if (bonus%1000>0) {
+                            progressBar.setProgress(bonus % 1000);
+                        } else if(bonus%1000==0){
+                                    addingTime.start();
+                            progressBar.setProgress(0);
+                            System.out.println("Progress bar is " + progressBar.getProgress());
+
+                                    long left = remainingTime+15000;
+                                    System.out.println("TIMER SHOULD BE"+left);
+                                    gameTimer.cancel();
+                                    gameTimer = new GameTimer(left, 1000, timeTXT);
+                                    gameTimer.start();
+                        }
                         randomFood();
                         food.setVisibility(VISIBLE);
                     }
@@ -334,37 +317,6 @@ public Monster randomMonster(){
 
     }
 
-public void updateScore (){
-    score.setText(String.valueOf(bonus));
-    updateBonusScale();
-}
-
-    public void updateBonusScale(){
-
-        int cur;
-        if(bonus < 0)
-            cur = 0;
-        else if(bonus <= 300)
-            cur = 1;
-        else if(bonus <= 700)
-            cur = 2;
-        else if(bonus <= 1000)
-            cur = 3;
-        else if(bonus <= 1500)
-            cur = 4;
-        else
-            cur = 5;
-
-        System.out.println(cur);
-
-        for (int i = 0; i <= cur - 1; i++) {
-            scores[i].setVisibility(VISIBLE);
-        }
-        for (int i = cur; i <5 ; i++) {
-            scores[i].setVisibility(View.INVISIBLE);
-
-        }
-    }
 
 
 
@@ -481,6 +433,7 @@ public void updateScore (){
         public void onTick(long millisUntilFinished) {
 
             timeLeft.setText("Time left: " + millisUntilFinished / 1000);
+            remainingTime=millisUntilFinished;
         }
 
 
@@ -505,8 +458,6 @@ public void updateScore (){
 
 
         }
-
-
     }
 
 
@@ -524,6 +475,7 @@ public void updateScore (){
         finish();
         super.onStop();
     }
+
 }
 
 

@@ -19,78 +19,59 @@ public class AdapterFood extends BaseAdapter {
     public AdapterFood (Context context) {
         this.context = context;
         foods = new ArrayList<>();
-        foods.add(new Food(60, "black", R.drawable.braslet, "braslet", 40, 0, Food.FoodType.Luxury));
-        foods.add(new Food(80, "black", R.drawable.car, "car", 70, 0, Food.FoodType.Luxury));
-        foods.add(new Food(100, "black", R.drawable.champagne, "champagne", 80, 0, Food.FoodType.Luxury));
-        foods.add(new Food(120, "black", R.drawable.crawn, "crawn", 100, 0, Food.FoodType.Luxury));
-        foods.add(new Food(90, "black", R.drawable.crawn2, "crawn2", 70, 0, Food.FoodType.Luxury));
-        foods.add(new Food(190, "black", R.drawable.dollar, "dollar", 130, 0, Food.FoodType.Luxury));
-        foods.add(new Food(80, "black", R.drawable.diamound, "diamound", 60, 0, Food.FoodType.Luxury));
-        foods.add(new Food(99, "black", R.drawable.dress, "dress", 90, 0, Food.FoodType.Luxury));
-        foods.add(new Food(70, "black", R.drawable.earrings, "earrings", 50, 0, Food.FoodType.Luxury));
-        foods.add(new Food(110, "black", R.drawable.euro, "euro", 100, 0, Food.FoodType.Luxury));
-        foods.add(new Food(200, "black", R.drawable.gold, "gold", 160, 0, Food.FoodType.Luxury));
-        foods.add(new Food(130, "black", R.drawable.hat, "hat", 80, 0, Food.FoodType.Luxury));
-        foods.add(new Food(80, "black", R.drawable.jacket, "jacket", 40, 0, Food.FoodType.Luxury));
-        foods.add(new Food(120, "black", R.drawable.limo, "limo", 90, 0, Food.FoodType.Luxury));
-        foods.add(new Food(80, "black", R.drawable.martini, "martini", 60, 0, Food.FoodType.Luxury));
-        foods.add(new Food(160, "black", R.drawable.monalisa, "monalisa", 120, 0, Food.FoodType.Luxury));
-        foods.add(new Food(180, "black", R.drawable.moneybag, "moneybag", 120, 0, Food.FoodType.Luxury));
-        foods.add(new Food(60, "black", R.drawable.neck, "neck", 30, 0, Food.FoodType.Luxury));
-        foods.add(new Food(80, "black", R.drawable.ring, "ring", 60, 0, Food.FoodType.Luxury));
-        foods.add(new Food(100, "black", R.drawable.shoe, "shoe", 80, 0, Food.FoodType.Luxury));
-        foods.add(new Food(130, "black", R.drawable.watches, "watches", 50, 0, Food.FoodType.Luxury));
-        foods.add(new Food(130, "black", R.drawable.yahct, "yahct", 80, 0, Food.FoodType.Luxury));
+
+        foods.add(new Food(100, "black", R.drawable.coctal, "coctail", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.car, "car", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.earing, "earring", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.crown, "crown", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.crown2, "crown2", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.dollar, "dollar", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.diamond, "diamond", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.crown3, "crown3", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.euro, "euro", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.hat, "hat", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.tuxedo, "tuxedo", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.money, "money", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.money2, "money2", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.ring, "ring", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.shoe, "shoe", 100, 0, Food.FoodType.Luxury));
+        foods.add(new Food(100, "black", R.drawable.money3, "money3", 100, 0, Food.FoodType.Luxury));
 
 
+        foods.add(new Food(100, "black", R.drawable.sportshoe, "sportshoe", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.yoga, "yoga", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.socer, "socer", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.banana, "banana", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.cherry, "cherry", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.pepper, "pepper", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.tomato, "tomato", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.tennis, "tennis", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.tennisball, "tennisball", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.carrot, "carrot", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.glove, "glove", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.bike, "bike", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.orange, "orange", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.roller, "roller", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.jym, "jym", 100, 0, Food.FoodType.Healthy));
+        foods.add(new Food(100, "black", R.drawable.jym2, "jym2", 100, 0, Food.FoodType.Healthy));
 
 
-        foods.add(new Food(60, "black", R.drawable.sportshoe, "braslet", 40, 0, Food.FoodType.Healthy));
-        foods.add(new Food(80, "black", R.drawable.yoga, "car", 70, 0, Food.FoodType.Healthy));
-        foods.add(new Food(100, "black", R.drawable.yogamat, "champagne", 80, 0, Food.FoodType.Healthy));
-        foods.add(new Food(120, "black", R.drawable.banana, "crawn", 100, 0, Food.FoodType.Healthy));
-        foods.add(new Food(90, "black", R.drawable.berry, "crawn2", 70, 0, Food.FoodType.Healthy));
-        foods.add(new Food(190, "black", R.drawable.strewberry1, "dollar", 130, 0, Food.FoodType.Healthy));
-        foods.add(new Food(80, "black", R.drawable.cactus3, "diamound", 60, 0, Food.FoodType.Healthy));
-        foods.add(new Food(99, "black", R.drawable.cherry, "dress", 90, 0, Food.FoodType.Healthy));
-        foods.add(new Food(70, "black", R.drawable.grapefruit, "earrings", 50, 0, Food.FoodType.Healthy));
-        foods.add(new Food(110, "black", R.drawable.ananas, "euro", 100, 0, Food.FoodType.Healthy));
-        foods.add(new Food(200, "black", R.drawable.avocado, "gold", 160, 0, Food.FoodType.Healthy));
-        foods.add(new Food(130, "black", R.drawable.bice, "hat", 80, 0, Food.FoodType.Healthy));
-        foods.add(new Food(80, "black", R.drawable.cacyus, "jacket", 40, 0, Food.FoodType.Healthy));
-        foods.add(new Food(120, "black", R.drawable.hita, "limo", 90, 0, Food.FoodType.Healthy));
-        foods.add(new Food(80, "black", R.drawable.lemon, "martini", 60, 0, Food.FoodType.Healthy));
-        foods.add(new Food(160, "black", R.drawable.mishkolet, "monalisa", 120, 0, Food.FoodType.Healthy));
-        foods.add(new Food(180, "black", R.drawable.onion, "moneybag", 120, 0, Food.FoodType.Healthy));
-        foods.add(new Food(60, "black", R.drawable.roller, "neck", 30, 0, Food.FoodType.Healthy));
-        foods.add(new Food(80, "black", R.drawable.shapebice, "ring", 60, 0, Food.FoodType.Healthy));
-        foods.add(new Food(100, "black", R.drawable.sportshoe, "shoe", 80, 0, Food.FoodType.Healthy));
-        foods.add(new Food(130, "black", R.drawable.stretch, "watches", 50, 0, Food.FoodType.Healthy));
-        foods.add(new Food(130, "black", R.drawable.tomato, "yahct", 80, 0, Food.FoodType.Healthy));
-
-
-        foods.add(new Food(140, "black", R.drawable.baby, "baby", 180, 0, Food.FoodType.Sweet));
-        foods.add(new Food(100, "black", R.drawable.bear, "bear", 90, 0, Food.FoodType.Sweet));
-        foods.add(new Food(90, "black", R.drawable.cake, "cake", 90, 0, Food.FoodType.Sweet));
-        foods.add(new Food(180, "black", R.drawable.cake2, "cake2", 160, 0, Food.FoodType.Sweet));
-        foods.add(new Food(90, "black", R.drawable.candy, "candy", 100, 0, Food.FoodType.Sweet));
-        foods.add(new Food(80, "black", R.drawable.candy2, "candy2", 70, 0, Food.FoodType.Sweet));
-        foods.add(new Food(80, "black", R.drawable.chocolate, "chocolate", 40, 0, Food.FoodType.Sweet));
-        foods.add(new Food(150, "black", R.drawable.cloud, "cloud", 60, 0, Food.FoodType.Sweet));
-        foods.add(new Food(60, "black", R.drawable.coockie, "coockie", 40, 0, Food.FoodType.Sweet));
-        foods.add(new Food(90, "black", R.drawable.coockie2, "coockie2", 50, 0, Food.FoodType.Sweet));
-        foods.add(new Food(70, "black", R.drawable.croassson, "croassson", 60, 0, Food.FoodType.Sweet));
-        foods.add(new Food(100, "black", R.drawable.dog, "dog", 80, 0, Food.FoodType.Sweet));
-        foods.add(new Food(60, "black", R.drawable.doll, "doll", 40, 0, Food.FoodType.Sweet));
-        foods.add(new Food(90, "black", R.drawable.girl, "girl", 60, 0, Food.FoodType.Sweet));
-        foods.add(new Food(80, "black", R.drawable.icecream, "icecream", 70, 0, Food.FoodType.Sweet));
-        foods.add(new Food(90, "black", R.drawable.kartiv, "kartiv", 60, 0, Food.FoodType.Sweet));
-        foods.add(new Food(110, "black", R.drawable.kid, "kid", 90, 0, Food.FoodType.Sweet));
-        foods.add(new Food(80, "black", R.drawable.kitty, "kitty", 70, 0, Food.FoodType.Sweet));
-        foods.add(new Food(90, "black", R.drawable.kitty2, "kitty2", 70, 0, Food.FoodType.Sweet));
-        foods.add(new Food(120, "black", R.drawable.kitty3, "kitty3", 40, 0, Food.FoodType.Sweet));
-        foods.add(new Food(70, "black", R.drawable.pie, "pie", 60, 0, Food.FoodType.Sweet));
-        foods.add(new Food(80, "black", R.drawable.unicorn, "unicorn", 60, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.baby, "baby", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.teddybear, "teddybear", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.cake, "cake", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.cookie, "cookie", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.cruasson, "cruassson", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.icecream, "icecream", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.icecream2, "icecream2", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.icecream3, "icecream3", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.icecream4, "icecream4", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.cat, "cat", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.tart, "tart", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.unicorn, "unicorn", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.cupcake, "cupcake", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.cupcake2, "cupcake2", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.lolipop, "lolipop", 100, 0, Food.FoodType.Sweet));
+        foods.add(new Food(100, "black", R.drawable.doughnut, "doughnut", 100, 0, Food.FoodType.Sweet));
 
 
     }

@@ -1,3 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ec864c5146ecdd5b1bb6b319fe67e5049d52cb57">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_1c56385e30e86bfcecdbaaccaa245aa63a9f9e19\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.1.1_e6fb50337730a13e77251a063a54d113de43f6dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.1.1_e6fb50337730a13e77251a063a54d113de43f6dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.1.0_3bad404149d422bebf9056c85a39f75154bd6ea3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.1.1_8dd0e6d2b7f62d37123f362ae432be967b0a399f\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.1.1_8dd0e6d2b7f62d37123f362ae432be967b0a399f.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.1.0_d7e65c46902e4192c671fb5186b5b2acc06cd18b\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.1.1_6c8766a1161c86afcbcea30f8098af306a5fca90.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.1.1_3a442f44d48e133a709e60855a367d7b3222a6c8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_3a442f44d48e133a709e60855a367d7b3222a6c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_6c8766a1161c86afcbcea30f8098af306a5fca90\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.1.0_3bad404149d422bebf9056c85a39f75154bd6ea3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9b1c7417b4df41df264abc0ba3cd5faee2b4431b">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d91f9510bd886654d800739866811ceabfa27329\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.1.1\support-annotations-24.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\support-annotations-24.1.1_4f885d46fb51ac691730065ef7b0f6195575fdf3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.1.1\support-annotations-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.1.1_4f885d46fb51ac691730065ef7b0f6195575fdf3\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.1.0_d7e65c46902e4192c671fb5186b5b2acc06cd18b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\pre-dexed\debug\internal_impl-24.1.1_ef2c193d1d37667e8b448f94b4bab3a8054058cc.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\Owner\Documents\GitHub\MonsterLunch\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_ef2c193d1d37667e8b448f94b4bab3a8054058cc\classes.dex" />
+    </item>
+
+</items>
