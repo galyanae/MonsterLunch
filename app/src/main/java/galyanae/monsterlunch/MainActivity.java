@@ -32,6 +32,7 @@ import java.util.TimerTask;
 import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
+
     private GoogleApiClient client;
 
     android.support.v7.app.AlertDialog show;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     TextView timeLeft;
     long remainingTime;
+
 
     TextView name;
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     TextView etInfo;
     ImageView imageViewNewImage;
     ImageView ivCancel;
+
 
     TextView timeTXT;
 
@@ -316,7 +319,6 @@ public Monster randomMonster(){
         return randomFood;
 
     }
-
 
 
 
