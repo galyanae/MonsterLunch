@@ -32,14 +32,12 @@ import static android.view.View.VISIBLE;
 import static galyanae.monsterlunch.R.id.timeTXT;
 
 public class MainActivity extends AppCompatActivity {
-    private static Context mContext;
+
     private GoogleApiClient client;
 
     android.support.v7.app.AlertDialog show;
 
     TextView name;
-
-    final int DIALOG_EXIT = 1;
 
     MediaPlayer backGroundMusic;
     MediaPlayer monsterSound;
@@ -65,17 +63,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivCancel;
 
     TextView hTextView;
-
     TextView[]  scores;
 
     RelativeLayout background;
-
-    String foodType;
     Food randomFood;
 
     int position;
-
-    Boolean result;
 
     View v;
 
@@ -340,7 +333,6 @@ public void updateScore (){
 }
 
     public void updateBonusScale(){
-
         int cur;
         if(bonus < 0)
             cur = 0;
@@ -524,6 +516,7 @@ public void updateScore (){
         finish();
         super.onStop();
     }
+
 }
 
 
