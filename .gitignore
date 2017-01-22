@@ -12,3 +12,5 @@ git push -u origin master
 *.properties
 .idea/misc.xml
 .idea/workspace.xml
+.idea/workspace.xml
+.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock
