@@ -48,27 +48,6 @@
         android:progressTint="#EA8B0C" />
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/sound"
-        android:onClick="playOrMute"
-        android:background="@drawable/play"
-        android:layout_alignTop="@+id/timeTXT"
-        android:layout_toLeftOf="@+id/timeTXT"
-        android:layout_toStartOf="@+id/timeTXT" />
-
-    <ImageView
-        android:background="@drawable/dollar"
-        android:id="@+id/food"
-        android:cropToPadding="false"
-        android:layout_width="70dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="67dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
-
-    <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:id="@+id/secondTrach"
@@ -94,6 +73,17 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/imageView" />
 
+    <ImageView
+        android:background="@drawable/dollar"
+        android:id="@+id/food"
+        android:cropToPadding="false"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="67dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toStartOf="@+id/imageView2" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,8 +91,19 @@
         android:textSize="20dp"
         android:text="Time Left"
         android:layout_above="@+id/name"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_alignRight="@+id/food"
+        android:layout_alignStart="@+id/food"
+        android:layout_marginRight="26dp"
+        android:layout_marginStart="26dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/sound"
+        android:onClick="playOrMute"
+        android:background="@drawable/play"
+        android:layout_alignTop="@+id/timeTXT"
+        android:layout_toLeftOf="@+id/timeTXT" />
 
 
 </RelativeLayout>
